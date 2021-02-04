@@ -1,0 +1,72 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Bridge.Jolt.Demo
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            // If environment variable for a different "/bridge" route is provided, add a PhysicalFileProvider for it.
+            // Reason we need this is to provide the Bridge.NET front-end files while debugging from Visual Studio.
+            string alternateBridgeNetPath = Environment.GetEnvironmentVariable("BRIDGE_PATH");
+            if (!String.IsNullOrEmpty(alternateBridgeNetPath))
+            {
+                StaticFileOptions staticFileOpt = new StaticFileOptions { RequestPath = "/bridge" };
+                if (Path.IsPathRooted(alternateBridgeNetPath))
+                {
+                    staticFileOpt.FileProvider = new PhysicalFileProvider(alternateBridgeNetPath);
+                }
+                else
+                {
+                    staticFileOpt.FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), alternateBridgeNetPath));
+                }
+                app.UseStaticFiles(staticFileOpt);
+            }
+            app.UseStaticFiles();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapDefaultControllerRoute();
+            });
+        }
+    }
+}

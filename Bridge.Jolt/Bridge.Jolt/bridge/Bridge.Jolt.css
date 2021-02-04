@@ -1,0 +1,54 @@
+﻿
+/** Normalization
+*/
+* {
+    box-sizing: border-box;
+}
+
+
+/** Default colors
+*/
+:root {
+    --jolt-color-buttons: white;
+    --jolt-color-buttons-bg: #7E92A9;
+    --jolt-color-buttons-bg-hover: #9DACBD;
+}
+
+
+/** Controls -> Button
+*/
+.Bridge-Jolt-Controls-Button {
+    background-color: var(--jolt-color-buttons-bg);
+    border: 1px solid;
+    color: var(--jolt-color-buttons);
+    cursor: pointer;
+    display: inline-block;
+    filter: unset;
+    overflow: hidden;
+    padding: 8px 16px 8px 16px;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    vertical-align: unset;
+    white-space: normal;
+}
+
+.Bridge-Jolt-Controls-Button:hover {
+    background-color: var(--jolt-color-buttons-bg-hover);
+}
+
+.Bridge-Jolt-Controls-Button.Disabled {
+    cursor: unset;
+    filter: grayscale(100%);
+}
+
+.Bridge-Jolt-Controls-Button.InProgress {
+    cursor: wait;
+}
+
+.Bridge-Jolt-Controls-Button.InProgress img {
+    height: 100%;
+}
+
+.Bridge-Jolt-Controls-Button-Text {
+}
