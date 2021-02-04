@@ -55,6 +55,7 @@
     <Compile Include="Abstractions\IErrorHandler.cs" />
     <Compile Include="Abstractions\IJoltImageProvider.cs" />
     <Compile Include="Controls\Button.cs" />
+    <Compile Include="Controls\Label.cs" />
     <Compile Include="EventHandlerAsync.cs" />
     <Compile Include="Controls\HtmlControl.cs" />
     <Compile Include="Controls\Spinner.cs" />

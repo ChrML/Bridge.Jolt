@@ -11,6 +11,8 @@ namespace Bridge.Demo
         {
             dom.HTMLElement root = Html.GetByIdRequired<dom.HTMLElement>("Demo-Root");
 
+            Label label1 = new Label("Here is a few buttons: ");
+
             Button btn1 = new Button
             {
                 Text = "Click me"
@@ -30,10 +32,10 @@ namespace Bridge.Demo
             };
 
             root
+                .Append(label1)
                 .Append(btn1)
                 .Append(btn2)
                 .Append(btn3);
-
         }
     }
 }
