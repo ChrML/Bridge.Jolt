@@ -1,56 +1,83 @@
 ﻿using Bridge.Jolt.Abstractions;
 using Bridge.Jolt.Services.Default;
 using System;
-using System.Collections.Generic;
 
 namespace Bridge.Jolt.Services
 {
     /// <summary>
     /// Implements a default service provider.
     /// </summary>
-    public sealed class AppServices: IServiceProvider
+    public static class AppServices
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AppServices"/> class.
-        /// </summary>
-        public AppServices()
-        {
-            // TODO: For now we just provide some very simple default services here.
-
-            this
-                .AddService<IErrorHandler, DefaultErrorHandler>()
-                .AddService<IJoltImageProvider, DefaultJoltImageProvider>();
-        }
+        #region Constructors
 
         /// <summary>
-        /// Gets the default service provider for this application.
+        /// Static initialization for the <see cref="AppServices"/> class to ensure that the default Jolt- services are
+        /// available if services are not configured.
         /// </summary>
-        public static IServiceProvider Default { get; } = new AppServices();
-
-        /// <inheritdoc/>
-        public object GetService(Type serviceType)
+        static AppServices()
         {
-            if (this.services.TryGetValue(serviceType, out object value))
-            {
-                return value;
-            }
-            else
-            {
-                return null;
-            }
+            AddDefaultJoltServices(defaultJoltServices);
+            Default = defaultJoltServices.BuildServiceProvider();
+        }
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the current global service provider for this application.
+        /// </summary>
+        public static IServiceProvider Default { get; private set; } 
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Sets a service provider to use for this application.
+        /// </summary>
+        /// <param name="provider"></param>
+        public static void SetServiceProvider(IServiceProvider provider)
+        {
+            Default = provider ?? throw new ArgumentNullException(nameof(provider));
+        }
+
+        /// <summary>
+        /// Uses a startup class to configure the services for this application. This is the recommended approach.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void UseStartup<T>()
+            where T : class, IStartup
+        {
+            ServiceCollection services = defaultJoltServices.CopyWithoutInstances();;
+
+            IServiceProvider startupProvider = services.BuildServiceProvider();
+            IStartup startup = ActivatorUtilities.CreateInstance<T>(startupProvider);
+            startup.ConfigureServices(services);
+
+            IServiceProvider provider = services.BuildServiceProvider();
+            SetServiceProvider(provider);
+        }
+
+        #endregion
+
+        #region Privates
+
+        /// <summary>
+        /// Adds all the Jolt- default services to the application.
+        /// </summary>
+        /// <param name="services"></param>
+        static void AddDefaultJoltServices(IServiceCollection services)
+        {
+            services
+                .AddSingleton<IErrorHandler, DefaultErrorHandler>()
+                .AddSingleton<IJoltImageProvider, DefaultJoltImageProvider>();
         }
 
 
+        static readonly ServiceCollection defaultJoltServices = new ServiceCollection();
 
-        AppServices AddService<TService, TImplementation>()
-            where TImplementation : TService, new()
-        {
-            TService implementation = new TImplementation();
-            this.services.Add(typeof(TService), implementation);
-            return this;
-        }
-
-
-        readonly Dictionary<Type, object> services = new Dictionary<Type, object>();
+        #endregion
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Reflection;
 
-namespace Bridge.Jolt
+namespace Bridge.Jolt.Services
 {
     /// <summary>
     /// Provides extension methods for <see cref="IServiceProvider"/>.
@@ -10,12 +11,13 @@ namespace Bridge.Jolt
         /// <summary>
         /// Resolves a required service of the given type.
         /// </summary>
-        /// <typeparam name="T">The service to resolve.</typeparam>
+        /// <typeparam name="TService">The service to resolve.</typeparam>
         /// <returns>Returns the instance of the service to use.</returns>
-        public static T Resolve<T>(this IServiceProvider provider) where T : class
+        public static TService Resolve<TService>(this IServiceProvider provider) 
+            where TService : class
         {
             if (provider == null) throw new ArgumentNullException(nameof(provider));
-            return (T)provider.GetService(typeof(T)) ?? throw new InvalidOperationException("No service registered for " + typeof(T).FullName + ".");
+            return (TService)provider.GetService(typeof(TService)) ?? throw new InvalidOperationException("No service registered for " + typeof(TService).FullName + ".");
         }
     }
 }

@@ -5,6 +5,7 @@ namespace Bridge.Jolt.Services.Default
     /// <summary>
     /// Provides a default implementation of the <see cref="IJoltImageProvider"/> service.
     /// </summary>
+    [Reflectable(true)]
     class DefaultJoltImageProvider: IJoltImageProvider
     {
         public string Completed => "img/Completed.svg";

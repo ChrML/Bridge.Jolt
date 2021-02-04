@@ -1,5 +1,7 @@
-﻿using Bridge.Jolt;
+﻿using Bridge.Demo.CustomService;
+using Bridge.Jolt;
 using Bridge.Jolt.Controls;
+using Bridge.Jolt.Services;
 using Retyped;
 using System.Threading.Tasks;
 
@@ -9,6 +11,10 @@ namespace Bridge.Demo
     {
         public static void Main()
         {
+            AppServices.UseStartup<Startup>();
+
+            IMyCustomService test = AppServices.Default.Resolve<IMyCustomService>();
+
             dom.HTMLElement root = Html.GetByIdRequired<dom.HTMLElement>("Demo-Root");
 
             Label label1 = new Label("Here is a few buttons: ");
