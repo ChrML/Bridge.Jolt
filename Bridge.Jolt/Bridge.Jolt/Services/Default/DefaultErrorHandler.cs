@@ -6,6 +6,7 @@ namespace Bridge.Jolt.Services.Default
     /// <summary>
     /// Provides a default implementation of the <see cref="IErrorHandler"/> service.
     /// </summary>
+    [Reflectable(true)]
     class DefaultErrorHandler: IErrorHandler
     {
         /// <summary>

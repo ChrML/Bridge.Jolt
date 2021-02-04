@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bridge.Jolt.Services;
+using System;
 
 namespace Bridge.Jolt
 {
