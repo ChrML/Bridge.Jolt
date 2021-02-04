@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	<BridgeCompileMode>Debug</BridgeCompileMode>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	<BridgeCompileMode>Release</BridgeCompileMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bridge.Demo\Bridge.Demo.csproj" />
+    <ProjectReference Include="..\Bridge.Jolt\Bridge.Jolt.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\img\InProgress.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  
+   <Target Name="CopyBridgeOutput" AfterTargets="AfterBuild;Publish">
+    <ItemGroup>
+      <BridgeFiles Include="..\Bridge.Demo\bin\$(BridgeCompileMode)\bridge\**\*.js" />
+    </ItemGroup>
+    <Message Text="Copying files from Bridge.Demo to WebServer.Demo ... ($(BridgeCompileMode))" Importance="high" />
+	<Message Text="Compile target: $(TargetDir)" Importance="high" />
+    <Copy SourceFiles="@(BridgeFiles)" DestinationFolder="$(TargetDir)\bridge\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+  
+  <Target Name="CopyBridgeOutputOnPublish" AfterTargets="Publish">
+    <ItemGroup>
+      <BridgeFiles Include="..\Bridge.Demo\bin\$(BridgeCompileMode)\bridge\**\*.js" />
+    </ItemGroup>
+    <Message Text="Publishing files from Bridge.Demo to WebServer.Demo ... ($(BridgeCompileMode))" Importance="high" />
+	<Message Text="Publishing target: $(PublishDir)" Importance="high" />
+    <Copy SourceFiles="@(BridgeFiles)" DestinationFolder="$(PublishDir)\wwwroot\bridge\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>
