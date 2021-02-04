@@ -8,3 +8,4 @@ Release/
 .vs/
 /packages
 Bridge.Jolt/packages/
+Bridge.Jolt/WebServer.Demo/Properties/launchSettings.json
