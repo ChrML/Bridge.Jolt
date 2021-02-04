@@ -1,10 +1,7 @@
 ﻿using Bridge.Demo.CustomService;
+using Bridge.Jolt;
 using Bridge.Jolt.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bridge.Demo
 {
@@ -17,13 +14,16 @@ namespace Bridge.Demo
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add your services to the container here.
+
             services
                 .AddSingleton<IMyCustomService, MyCustomService>()
                 .AddSingleton<IOtherService, OtherService>();
         }
 
-        public void Configure()
+        public void Configure(Jolt.IServiceProvider provider)
         {
+            // Perform additional configuration here.
         }
     }
 }
