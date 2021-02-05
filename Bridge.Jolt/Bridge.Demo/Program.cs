@@ -37,11 +37,19 @@ namespace Bridge.Demo
                 ClickAsync = async (o, e) => await Task.Delay(5000)
             };
 
+
+            ListView list1 = new ListView();
+            list1.Items
+                .Add("Item 1")
+                .Add("Item 2")
+                .Add("Item 3");
+
             root
                 .Append(label1)
                 .Append(btn1)
                 .Append(btn2)
-                .Append(btn3);
+                .Append(btn3)
+                .Append(list1);
         }
     }
 }
