@@ -61,15 +61,15 @@ namespace Bridge.Jolt.Controls
                 switch (status)
                 {
                     case TaskStatus.InProgress:
-                        this.indicator.src = AppServices.Default.Resolve<IJoltImageProvider>().InProgress;
+                        this.indicator.src = Service.Resolve<IJoltImageProvider>().InProgress;
                         break;
 
                     case TaskStatus.Completed:
-                        this.indicator.src = AppServices.Default.Resolve<IJoltImageProvider>().Completed;
+                        this.indicator.src = Service.Resolve<IJoltImageProvider>().Completed;
                         break;
 
                     case TaskStatus.Error:
-                        this.indicator.src = AppServices.Default.Resolve<IJoltImageProvider>().Error;
+                        this.indicator.src = Service.Resolve<IJoltImageProvider>().Error;
                         break;
 
                     default:

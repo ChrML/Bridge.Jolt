@@ -61,14 +61,7 @@ namespace Bridge.Jolt.Controls
                 if (value != this._text)
                 {
                     this._text = value;
-                    if (!String.IsNullOrEmpty(value))
-                    {
-                        this.domText.innerText = value;
-                    }
-                    else
-                    {
-                        this.domText.innerHTML = "&nbsp;";
-                    }
+                    this.domText.SetNullableInnerText(value);
                 }
             }
         }
@@ -115,7 +108,7 @@ namespace Bridge.Jolt.Controls
         protected virtual void OnActionException(Exception exception)
         {
             this.SetInProgress(false);
-            AppServices.Default.Resolve<IErrorHandler>().OnError(exception);
+            Service.Resolve<IErrorHandler>().OnError(exception);
         }
 
         /// <summary>

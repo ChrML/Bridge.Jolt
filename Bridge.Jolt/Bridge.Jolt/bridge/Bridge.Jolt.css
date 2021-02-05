@@ -9,18 +9,22 @@
 /** Default colors
 */
 :root {
-    --jolt-color-buttons: white;
-    --jolt-color-buttons-bg: #7E92A9;
-    --jolt-color-buttons-bg-hover: #9DACBD;
+    --jolt-color-button: white;
+    --jolt-color-button-bg: #7E92A9;
+    --jolt-color-button-bg-hover: #9DACBD;
+    --jolt-color-listview: black;
+    --jolt-color-listview-bg: white;
+    --jolt-color-listview-bg-item-hover: #eeeeee;
+    --jolt-color-listview-bg-item-selected: #dddddd;
 }
 
 
 /** Controls -> Button
 */
 .Bridge-Jolt-Controls-Button {
-    background-color: var(--jolt-color-buttons-bg);
+    background-color: var(--jolt-color-button-bg);
     border: 1px solid;
-    color: var(--jolt-color-buttons);
+    color: var(--jolt-color-button);
     cursor: pointer;
     display: inline-block;
     filter: unset;
@@ -34,7 +38,7 @@
 }
 
 .Bridge-Jolt-Controls-Button:hover {
-    background-color: var(--jolt-color-buttons-bg-hover);
+    background-color: var(--jolt-color-button-bg-hover);
 }
 
 .Bridge-Jolt-Controls-Button.Disabled {
@@ -57,4 +61,38 @@
 /** Controls -> Label
 */
 .Bridge-Jolt-Controls-Label {
+}
+
+
+/** Controls -> ListView
+*/
+.Bridge-Jolt-Controls-ListView {
+    overflow: hidden;
+    background-color: var(--jolt-color-listview-bg);
+}
+
+.Bridge-Jolt-Controls-ListView-Items {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.Bridge-Jolt-Controls-ListView-TextContent {
+    color: var(--jolt-color-listview);
+}
+
+.Bridge-Jolt-Controls-ListViewItem {
+    cursor: pointer;
+    margin-bottom: 2px;
+    overflow: hidden;
+    padding: 1em 0.5em 1em 0.5em;
+}
+
+.Bridge-Jolt-Controls-ListViewItem.Selected {
+    background-color: var(--jolt-color-listview-bg-item-selected);
+    cursor: unset;
+}
+
+.Bridge-Jolt-Controls-ListViewItem:hover:not(.Selected) {
+    background-color: var(--jolt-color-listview-bg-item-hover);
 }

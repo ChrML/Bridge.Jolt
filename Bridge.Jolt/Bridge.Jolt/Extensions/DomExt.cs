@@ -6,7 +6,7 @@ namespace Bridge.Jolt
     /// <summary>
     /// Provides extension methods for <see cref="dom.HTMLElement"/>.
     /// </summary>
-    public static class HtmlElementExtensions
+    public static class DomExt
     {
         /// <summary>
         /// Adds a CSS- class to the current element.
@@ -75,6 +75,55 @@ namespace Bridge.Jolt
         }
 
         /// <summary>
+        /// Inserts a a child element at the given index of the parent element.
+        /// </summary>
+        /// <param name="element">The item to insert a new child for.</param>
+        /// <param name="index">Index to insert item to.</param>
+        /// <param name="child">The child element to insert.</param>
+        public static void Insert(this dom.Element element, int index, dom.Element child)
+        {
+            // Check sanity.
+            if (element == null) throw new ArgumentNullException(nameof(element));
+            if (child == null) throw new ArgumentNullException(nameof(child));
+
+            // Validate the range of the argument.
+            int count = Convert.ToInt32(element.children.length);
+            if (index < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index), "Index must be zero or a positive value.");
+            }
+            else if (index > count)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index), "Index must be equal to or less than the number of elements in the parent.");
+            }
+
+            // Insert it the position requested.
+            if (index == count)
+            {
+                element.appendChild(child);
+            }
+            else
+            {
+                uint i = Convert.ToUInt32(index);
+                element.insertBefore(child, element.children[i]);
+            }
+        }
+
+        /// <summary>
+        /// Inserts a a child control at the given index of the parent element.
+        /// </summary>
+        /// <param name="element">The item to insert a new child for.</param>
+        /// <param name="index">Index to insert item to.</param>
+        /// <param name="child">The child element to insert.</param>
+        public static void Insert(this dom.HTMLElement element, int index, IHtmlElement child)
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+            if (child == null) throw new ArgumentNullException(nameof(child));
+
+            element.Insert(index, child.DomElement);
+        }
+
+        /// <summary>
         /// Removes the current element from the HTML dom tree.
         /// </summary>
         /// <param name="element"></param>
@@ -82,6 +131,35 @@ namespace Bridge.Jolt
         {
             if (element == null) throw new ArgumentNullException(nameof(element));
             element.remove();
+        }
+
+        /// <summary>
+        /// Replaces an existing child element with a new.
+        /// </summary>
+        /// <param name="element">The parent element to replace a child for.</param>
+        /// <param name="oldItem">The old item to replace.</param>
+        /// <param name="newItem">The new item to put at this position.</param>
+        public static void ReplaceChild(this dom.HTMLElement element, dom.HTMLElement oldItem, dom.HTMLElement newItem)
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+            if (oldItem == null) throw new ArgumentNullException(nameof(oldItem));
+            if (newItem == null) throw new ArgumentNullException(nameof(newItem));
+
+            element.replaceChild(oldItem, newItem);
+        }
+
+        /// <summary>
+        /// Removes all the child elements of the current element from the HTML dom tree.
+        /// </summary>
+        /// <param name="element">The element to remove all children from.</param>
+        public static void RemoveChildren(this dom.HTMLElement element)
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+
+            while (element.children.length > 0)
+            {
+                element.children[0].remove();
+            }
         }
 
         /// <summary>
@@ -130,6 +208,25 @@ namespace Bridge.Jolt
         {
             if (element == null) throw new ArgumentNullException(nameof(element));
             element.style.display = display ? null : "none";
+        }
+
+        /// <summary>
+        /// Sets the innerText- property of the current element. If the string is null or empty, we apply &nbsp; as a placeholder.
+        /// </summary>
+        /// <param name="element">The element to apply a new text to.</param>
+        /// <param name="text">The new text to apply.</param>
+        public static void SetNullableInnerText(this dom.HTMLElement element, string text)
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+
+            if (String.IsNullOrEmpty(text))
+            {
+                element.innerHTML = "&nbsp;";
+            }
+            else
+            {
+                element.innerText = text;
+            }
         }
 
         /// <summary>

@@ -72,7 +72,8 @@ namespace Bridge.Jolt.Services
         {
             services
                 .AddSingleton<IErrorHandler, DefaultErrorHandler>()
-                .AddSingleton<IJoltImageProvider, DefaultJoltImageProvider>();
+                .AddSingleton<IJoltImageProvider, DefaultJoltImageProvider>()
+                .AddSingleton<IJoltLocale, JoltEnglishLocale>();
         }
 
 
