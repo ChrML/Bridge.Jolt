@@ -52,7 +52,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\ApiClientExtensions.cs" />
+    <Compile Include="Abstractions\IApiClient.cs" />
     <Compile Include="Abstractions\IErrorHandler.cs" />
+    <Compile Include="Abstractions\IGlobalEvents.cs" />
     <Compile Include="Abstractions\IJoltImageProvider.cs" />
     <Compile Include="Controls\Button.cs" />
     <Compile Include="Abstractions\IJoltLocale.cs" />
@@ -65,13 +68,18 @@
     <Compile Include="Controls\HtmlControl.cs" />
     <Compile Include="Controls\Spinner.cs" />
     <Compile Include="HtmlElementExtensions.cs" />
+    <Compile Include="Http\HttpMethod.cs" />
+    <Compile Include="IRequiresAsyncLoad.cs" />
+    <Compile Include="ITrackUse.cs" />
     <Compile Include="MouseButton.cs" />
     <Compile Include="MouseEventArgs.cs" />
     <Compile Include="Services\ActivatorUtilities.cs" />
     <Compile Include="Services\AppServices.cs" />
     <Compile Include="Services\Default\DefaultErrorHandler.cs" />
+    <Compile Include="Services\Default\DefaultGlobalEvents.cs" />
     <Compile Include="Services\Default\DefaultJoltImageProvider.cs" />
     <Compile Include="Services\Default\JoltEnglishLocale.cs" />
+    <Compile Include="Services\Default\JsonApiClient.cs" />
     <Compile Include="Services\IServiceCollection.cs" />
     <Compile Include="Services\IStartup.cs" />
     <Compile Include="Services\Service.cs" />
