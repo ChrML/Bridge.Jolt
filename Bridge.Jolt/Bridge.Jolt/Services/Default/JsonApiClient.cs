@@ -8,6 +8,7 @@ namespace Bridge.Jolt.Services.Default
     /// <summary>
     /// Provides an implementation of the <see cref="IApiClient"/> that uses the JSON- format.
     /// </summary>
+    [Reflectable(true)]
     public class JsonApiClient: IApiClient
     {
         /// <summary>
