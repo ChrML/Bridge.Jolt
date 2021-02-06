@@ -27,10 +27,10 @@
 
     <!-- Build assets / included results -->
     <file src="Bridge.Jolt.targets" target="build/Bridge.Jolt.targets" />
-	<file src="bin/Release/bridge/Bridge.Jolt.js" target="build/Jolt/Bridge.Jolt.js" />
-	<file src="bin/Release/bridge/Bridge.Jolt.meta.js" target="build/Jolt/Bridge.Jolt.meta.js" />
-	<file src="bin/Release/bridge/Bridge.Jolt.meta.min.js" target="build/Jolt/Bridge.Jolt.meta.min.js" />
-	<file src="bin/Release/bridge/Bridge.Jolt.min.js" target="build/Jolt/Bridge.Jolt.min.js" />
-	<file src="Jolt/Bridge.Jolt.css" target="build/Jolt/Bridge.Jolt.css" />
+	<file src="bin/Release/bridge/Bridge.Jolt.js" target="content/Jolt/Bridge.Jolt.js" />
+	<file src="bin/Release/bridge/Bridge.Jolt.meta.js" target="content/Jolt/Bridge.Jolt.meta.js" />
+	<file src="bin/Release/bridge/Bridge.Jolt.meta.min.js" target="content/Jolt/Bridge.Jolt.meta.min.js" />
+	<file src="bin/Release/bridge/Bridge.Jolt.min.js" target="content/Jolt/Bridge.Jolt.min.js" />
+	<file src="bin/Release/Jolt/Bridge.Jolt.css" target="content/Jolt/Bridge.Jolt.css" />
   </files>
 </package>
