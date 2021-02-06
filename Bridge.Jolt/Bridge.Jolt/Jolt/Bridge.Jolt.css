@@ -54,7 +54,17 @@
     height: 100%;
 }
 
+.Bridge-Jolt-Controls-Button-Image {
+    display: inline-block;
+    height: 1em;
+    margin-right: 0.5em;
+    vertical-align: middle;
+    width: 1em;
+}
+
 .Bridge-Jolt-Controls-Button-Text {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 

@@ -11,6 +11,7 @@ namespace Bridge.Jolt.Controls
         /// Initializes a new instance of the <see cref="ListViewItemEventArgs"/> class.
         /// </summary>
         /// <param name="item"></param>
+        /// <param name="mouseEvent"></param>
         public ListViewItemEventArgs(ListViewItem item, MouseEventArgs mouseEvent)
         {
             this.Item = item ?? throw new ArgumentNullException(nameof(item));

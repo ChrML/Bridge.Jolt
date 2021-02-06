@@ -43,16 +43,13 @@ namespace Bridge.Jolt.Demo
             string alternateBridgeNetPath = Environment.GetEnvironmentVariable("BRIDGE_PATH");
             if (!String.IsNullOrEmpty(alternateBridgeNetPath))
             {
-                StaticFileOptions staticFileOpt = new StaticFileOptions { RequestPath = "/bridge" };
-                if (Path.IsPathRooted(alternateBridgeNetPath))
-                {
-                    staticFileOpt.FileProvider = new PhysicalFileProvider(alternateBridgeNetPath);
-                }
-                else
-                {
-                    staticFileOpt.FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), alternateBridgeNetPath));
-                }
-                app.UseStaticFiles(staticFileOpt);
+                StaticFileOptions staticFileOpt1 = new StaticFileOptions { RequestPath = "/bridge" };
+                staticFileOpt1.FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), alternateBridgeNetPath));
+                app.UseStaticFiles(staticFileOpt1);
+
+                StaticFileOptions staticFileOpt2 = new StaticFileOptions { RequestPath = "/bridge" };
+                staticFileOpt2.FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), alternateBridgeNetPath.Replace("/bridge", "/Jolt")));
+                app.UseStaticFiles(staticFileOpt2);
             }
             app.UseStaticFiles();
 

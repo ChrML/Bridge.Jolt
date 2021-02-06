@@ -1,4 +1,5 @@
-﻿using Bridge.Demo.CustomService;
+﻿using Bridge.Demo.Controls;
+using Bridge.Demo.CustomService;
 using Bridge.Jolt;
 using Bridge.Jolt.Controls;
 using Bridge.Jolt.Services;
@@ -19,23 +20,8 @@ namespace Bridge.Demo
 
             Label label1 = new Label("Here is a few buttons: ");
 
-            Button btn1 = new Button
-            {
-                Text = "Click me"
-            };
-            btn1.Click += (o, e) => { };
 
-            Button btn2 = new Button
-            {
-                Text = "Click me (2 sec)",
-                ClickAsync = async (o, e) => await Task.Delay(2000)
-            };
-
-            Button btn3 = new Button
-            {
-                Text = "Click me (5 sec)",
-                ClickAsync = async (o, e) => await Task.Delay(5000)
-            };
+            ButtonDemo btnDemo = new ButtonDemo();
 
 
             ListView list1 = new ListView();
@@ -46,9 +32,7 @@ namespace Bridge.Demo
 
             root
                 .Append(label1)
-                .Append(btn1)
-                .Append(btn2)
-                .Append(btn3)
+                .Append(btnDemo)
                 .Append(list1);
         }
     }

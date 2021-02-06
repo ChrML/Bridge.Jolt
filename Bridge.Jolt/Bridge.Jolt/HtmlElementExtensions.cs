@@ -1,9 +1,5 @@
 ﻿using Retyped;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bridge.Jolt
 {
@@ -34,5 +30,15 @@ namespace Bridge.Jolt
             }
         }
 
+        /// <summary>
+        /// Removes the HTML- element from the DOM- tree.
+        /// </summary>
+        /// <param name="element">The element to remove from the DOM- tree.</param>
+        public static void Remove(this IHtmlElement element)
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+            dom.HTMLElement dom = element.DomElement ?? throw new InvalidOperationException("The HTML- element does not have a root.");
+            dom.Remove();
+        }
     }
 }

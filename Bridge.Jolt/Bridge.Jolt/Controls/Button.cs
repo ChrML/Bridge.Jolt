@@ -54,6 +54,16 @@ namespace Bridge.Jolt.Controls
         bool _disabled;
 
         /// <summary>
+        /// Gets or sets the image to render inside this button.
+        /// </summary>
+        public string Image
+        {
+            get => this._image;
+            set => this.SetImage(value);
+        }
+        string _image;
+
+        /// <summary>
         /// Gets if an asynchronous action is currently in progress.
         /// </summary>
         public bool InProgress { get; private set; }
@@ -193,7 +203,13 @@ namespace Bridge.Jolt.Controls
                 if (!inProgress)
                 {
                     this.spinner.SetStatus(TaskStatus.None);
-                    this.DomElement.appendChild(this.domText);
+
+                    if (this.domImage != null)
+                    {
+                        this.DomElement.Append(this.domImage);
+                    }
+                    this.DomElement.Append(this.domText);
+
                     this.DomElement.SetClass("InProgress", false);
                     this.UnlockSize();
                     this.spinning = false;
@@ -205,6 +221,7 @@ namespace Bridge.Jolt.Controls
                 {
                     this.LockSize();
                     this.DomElement.SetClass("InProgress", true);
+                    this.domImage?.Remove();
                     this.domText.Remove();
                     this.spinner.SetStatus(TaskStatus.InProgress);
                     this.spinning = true;
@@ -228,6 +245,33 @@ namespace Bridge.Jolt.Controls
         }
 
         /// <summary>
+        /// Sets the image displayed by this button.
+        /// </summary>
+        /// <param name="src"></param>
+        void SetImage(string src)
+        {
+            this._image = src;
+
+            if (String.IsNullOrEmpty(src))
+            {
+                this.domImage?.Remove();
+            }
+            else
+            {
+                if (this.domImage == null)
+                {
+                    this.domImage = Html.NewImg<Button>("Image");
+                    this.domImage.src = src;
+
+                    if (!this.InProgress)
+                    {
+                        this.DomElement.Insert(0, this.domImage);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Unlocks the current size of the button so that it may flow freely according to the contents.
         /// </summary>
         void UnlockSize()
@@ -244,6 +288,7 @@ namespace Bridge.Jolt.Controls
         bool sizeFixed = false;
         bool spinning = false;
 
+        dom.HTMLImageElement domImage = null;
         readonly dom.HTMLDivElement domText = Html.NewDiv<Button>("Text");
         readonly Spinner spinner;
 

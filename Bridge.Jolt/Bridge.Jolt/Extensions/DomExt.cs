@@ -211,7 +211,7 @@ namespace Bridge.Jolt
         }
 
         /// <summary>
-        /// Sets the innerText- property of the current element. If the string is null or empty, we apply &nbsp; as a placeholder.
+        /// Sets the innerText- property of the current element. If the string is null or empty, we apply a placeholder.
         /// </summary>
         /// <param name="element">The element to apply a new text to.</param>
         /// <param name="text">The new text to apply.</param>
