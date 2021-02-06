@@ -102,8 +102,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bridge\Bridge.Jolt.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Jolt\Bridge.Jolt.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

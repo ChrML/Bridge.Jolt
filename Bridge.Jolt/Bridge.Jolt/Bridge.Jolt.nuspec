@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata minClientVersion="2.5">
+    <id>Bridge.Jolt</id>
+    <version>0.0.0</version>
+    <title>Bridge.Jolt</title>
+    <authors>Christian Lundheim</authors>
+    <icon>icon.png</icon>
+    <owners />
+    <license type="expression">GPL-3.0-only</license>
+    <projectUrl>https://github.com/ChrML/Bridge.Jolt</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides dependency-injection and UI- framework for Bridge.NET.</description>
+    <summary>Provides dependency-injection and UI- framework for Bridge.NET.</summary>
+    <copyright>Copyright (c) Christian Lundheim. All rights reserved.</copyright>
+    <tags>bridge bridge.net bridge js javascript C# ux ui dependency injection</tags>
+    <dependencies>
+      <dependency id="Bridge" version="17.10.1" />
+    </dependencies>
+    <frameworkAssemblies>
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="../../README.md" target="README.md" />
+    <file src="../../LICENSE" target="LICENSE" />
+    <file src="icon.png" target="icon.png" />
+
+    <!-- Build assets / included results -->
+    <file src="Bridge.Jolt.targets" target="build/Bridge.Jolt.targets" />
+	<file src="bin/Release/bridge/Bridge.Jolt.js" target="build/Jolt/Bridge.Jolt.js" />
+	<file src="bin/Release/bridge/Bridge.Jolt.meta.js" target="build/Jolt/Bridge.Jolt.meta.js" />
+	<file src="bin/Release/bridge/Bridge.Jolt.meta.min.js" target="build/Jolt/Bridge.Jolt.meta.min.js" />
+	<file src="bin/Release/bridge/Bridge.Jolt.min.js" target="build/Jolt/Bridge.Jolt.min.js" />
+	<file src="Jolt/Bridge.Jolt.css" target="build/Jolt/Bridge.Jolt.css" />
+  </files>
+</package>

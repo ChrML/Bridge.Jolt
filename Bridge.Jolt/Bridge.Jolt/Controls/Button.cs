@@ -24,6 +24,14 @@ namespace Bridge.Jolt.Controls
             this.DomElement.appendChild(this.domText);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Button"/> class with the given text.
+        /// </summary>
+        public Button(string text)
+        {
+            this.Text = text;
+        }
+
         #endregion
 
         #region Properties

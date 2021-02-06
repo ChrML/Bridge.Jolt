@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <ItemGroup>
+  <None Include="$(MSBuildThisFileDirectory)Jolt/Bridge.Jolt.css">
+     <Link>bridge/Bridge.Jolt.css</Link>
+     <CopyToOutputDirectory>CopyIfNewer</CopyToOutputDirectory>
+  </None>
+ </ItemGroup>
+</Project>
