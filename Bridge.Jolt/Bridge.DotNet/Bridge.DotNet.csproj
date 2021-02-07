@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D60572E8-28CA-4855-8F5A-D5C476C33B0E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System</RootNamespace>
+    <AssemblyName>Bridge.DotNet</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoWarn>IDE0034</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoWarn>IDE0034</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bridge, Version=17.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Core.17.10.1\lib\net40\Bridge.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComponentModel\CancelEventArgs.cs" />
+    <Compile Include="IServiceProvider.cs" />
+    <Compile Include="ComponentModel\AddingNewEventArgs.cs" />
+    <Compile Include="ComponentModel\AddingNewEventHandler.cs" />
+    <Compile Include="ComponentModel\AttributeCollection.cs" />
+    <Compile Include="ComponentModel\BindingList.cs" />
+    <Compile Include="ComponentModel\CancelEventHandler.cs" />
+    <Compile Include="ComponentModel\CategoryAttribute.cs" />
+    <Compile Include="ComponentModel\CustomTypeDescriptor.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\CompareAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\DataType.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\DataTypeAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\DisplayAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\EditableAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\EmailAddressAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\IValidatableObject.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\MaxLengthAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\MinLengthAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\RangeAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\RegularExpressionAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\RequiredAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\StringLengthAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\ValidationAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\ValidationAttributeStore.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\ValidationContext.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\ValidationException.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\ValidationResult.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\Validator.cs" />
+    <Compile Include="ComponentModel\DescriptionAttribute.cs" />
+    <Compile Include="ComponentModel\Design\IServiceContainer.cs" />
+    <Compile Include="ComponentModel\Design\ServiceCreatorCallback.cs" />
+    <Compile Include="ComponentModel\DisplayNameAttribute.cs" />
+    <Compile Include="ComponentModel\EditorAttribute.cs" />
+    <Compile Include="ComponentModel\IBindingList.cs" />
+    <Compile Include="ComponentModel\ICancelAddNew.cs" />
+    <Compile Include="ComponentModel\ICustomTypeDescriptor.cs" />
+    <Compile Include="ComponentModel\IRaiseItemChangedEvents.cs" />
+    <Compile Include="ComponentModel\ListChangedEventArgs.cs" />
+    <Compile Include="ComponentModel\ListChangedEventHandler.cs" />
+    <Compile Include="ComponentModel\ListChangedType.cs" />
+    <Compile Include="ComponentModel\ListSortDirection.cs" />
+    <Compile Include="ComponentModel\MemberDescriptor.cs" />
+    <Compile Include="ComponentModel\PropertyDescriptor.cs" />
+    <Compile Include="ComponentModel\PropertyDescriptorCollection.cs" />
+    <Compile Include="ComponentModel\ReadOnlyAttribute.cs" />
+    <Compile Include="ComponentModel\ReflectPropertyDescriptor.cs" />
+    <Compile Include="ComponentModel\TypeDescriptor.cs" />
+    <Compile Include="Drawing\Color.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\PropertyInfoExtensions.cs" />
+    <Compile Include="TypeExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bridge.json" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Bridge.Min.17.10.1\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.17.10.1\build\Bridge.Min.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Bridge.Min.17.10.1\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bridge.Min.17.10.1\build\Bridge.Min.targets'))" />
+  </Target>
+</Project>

@@ -7,5 +7,6 @@ Release/
 *.log
 .vs/
 /packages
+Bridge.Jolt/Bridge.Jolt/.generated/
 Bridge.Jolt/packages/
 Bridge.Jolt/WebServer.Demo/Properties/launchSettings.json

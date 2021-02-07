@@ -14,23 +14,29 @@
     <summary>Provides dependency-injection and UI- framework for Bridge.NET.</summary>
     <copyright>Copyright (c) Christian Lundheim. All rights reserved.</copyright>
     <tags>bridge bridge.net bridge js javascript C# ux ui dependency injection</tags>
-    <dependencies>
-      <dependency id="Bridge" version="17.10.1" />
-    </dependencies>
     <frameworkAssemblies>
     </frameworkAssemblies>
+	<dependencies>
+	  <group targetFramework=".NETFramework4.7.2">
+        <dependency id="Bridge" version="17.10.1" />
+      </group>
+	</dependencies>
   </metadata>
   <files>
     <file src="../../README.md" target="README.md" />
     <file src="../../LICENSE" target="LICENSE" />
     <file src="icon.png" target="icon.png" />
+	
+	<!-- Referenced assemblies -->
+	<file src="bin/Release/Bridge.DotNet.dll" target="lib/net472/Bridge.DotNet.dll" />
+	<file src="bin/Release/Bridge.Jolt.dll" target="lib/net472/Bridge.Jolt.dll" />
 
     <!-- Build assets / included results -->
     <file src="Bridge.Jolt.targets" target="build/Bridge.Jolt.targets" />
-	<file src="bin/Release/bridge/Bridge.Jolt.js" target="content/Jolt/Bridge.Jolt.js" />
-	<file src="bin/Release/bridge/Bridge.Jolt.meta.js" target="content/Jolt/Bridge.Jolt.meta.js" />
-	<file src="bin/Release/bridge/Bridge.Jolt.meta.min.js" target="content/Jolt/Bridge.Jolt.meta.min.js" />
-	<file src="bin/Release/bridge/Bridge.Jolt.min.js" target="content/Jolt/Bridge.Jolt.min.js" />
+	<file src=".generated/Bridge.Jolt.js" target="content/Jolt/Bridge.Jolt.js" />
+	<file src=".generated/Bridge.Jolt.meta.js" target="content/Jolt/Bridge.Jolt.meta.js" />
+	<file src=".generated/Bridge.Jolt.meta.min.js" target="content/Jolt/Bridge.Jolt.meta.min.js" />
+	<file src=".generated/Bridge.Jolt.min.js" target="content/Jolt/Bridge.Jolt.min.js" />
 	<file src="bin/Release/Jolt/Bridge.Jolt.css" target="content/Jolt/Bridge.Jolt.css" />
   </files>
 </package>

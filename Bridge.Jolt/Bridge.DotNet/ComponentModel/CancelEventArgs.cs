@@ -3,9 +3,6 @@
     /// <summary>
     /// Provides event arguments for events whose effects can be cancelled.
     /// </summary>
-    /// <remarks>
-    /// Simple substitute for a feature missing in Bridge.NET.
-    /// </remarks>  
     public class CancelEventArgs : EventArgs
     {
         /// <summary>
