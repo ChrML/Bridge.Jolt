@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Bridge.Jolt.Demo.Controllers
+namespace Jolt.Demo.Controllers
 {
     public class HomeController : Controller
     {

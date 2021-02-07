@@ -1,7 +1,7 @@
 ﻿using Retyped;
 using System;
 
-namespace Bridge.Jolt
+namespace Jolt
 {
     /// <summary>
     /// Provides extension methods for <see cref="dom.HTMLElement"/>.

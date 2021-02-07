@@ -7,7 +7,7 @@
     <ProjectGuid>{65441490-3171-4F21-92B3-0E5BA6ED4BD9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bridge.Jolt</RootNamespace>
+    <RootNamespace>Jolt</RootNamespace>
     <AssemblyName>Bridge.Jolt</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -88,7 +88,7 @@
     <Compile Include="Services\ServiceCollection.cs" />
     <Compile Include="Services\ServiceDescriptor.cs" />
     <Compile Include="Services\ServiceProvider.cs" />
-    <Compile Include="System\IServiceProvider.cs" />
+    <Compile Include="IServices.cs" />
     <Compile Include="Services\ServiceProviderExtensions.cs" />
     <Compile Include="TaskStatus.cs" />
     <Compile Include="Extensions\DomExt.cs" />

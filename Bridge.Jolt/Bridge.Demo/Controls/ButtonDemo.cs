@@ -1,8 +1,7 @@
-﻿using Bridge.Jolt;
-using Bridge.Jolt.Controls;
+﻿using Jolt.Controls;
 using System.Threading.Tasks;
 
-namespace Bridge.Demo.Controls
+namespace Jolt.Demo.Controls
 {
     /// <summary>
     /// Implements a control for demonstrating all the features of a <see cref="Button"/>.

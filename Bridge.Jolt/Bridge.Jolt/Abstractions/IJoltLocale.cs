@@ -1,4 +1,4 @@
-﻿namespace Bridge.Jolt.Abstractions
+﻿namespace Jolt.Abstractions
 {
     /// <summary>
     /// Represents a service that may provide default language strings used by Jolt.

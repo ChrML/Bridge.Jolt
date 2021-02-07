@@ -1,8 +1,8 @@
-﻿using Bridge.Jolt.Http;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Jolt.Http;
 
-namespace Bridge.Jolt.Abstractions
+namespace Jolt.Abstractions
 {
     /// <summary>
     /// Provides extension methods for the <see cref="IApiClient"/> service for common API- methods.

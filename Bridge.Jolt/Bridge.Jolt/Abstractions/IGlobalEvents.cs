@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bridge.Jolt.Abstractions
+namespace Jolt.Abstractions
 {
     /// <summary>
     /// Represents a service that can provide the most common global events.

@@ -1,8 +1,8 @@
-﻿using Bridge.Jolt.Abstractions;
-using Bridge.Jolt.Services.Default;
+﻿using Jolt.Abstractions;
+using Jolt.Services.Default;
 using System;
 
-namespace Bridge.Jolt.Services
+namespace Jolt.Services
 {
     /// <summary>
     /// Implements a default service provider.
@@ -28,7 +28,7 @@ namespace Bridge.Jolt.Services
         /// <summary>
         /// Gets the current global service provider for this application.
         /// </summary>
-        public static IServiceProvider Default { get; private set; } 
+        public static IServices Default { get; private set; } 
 
         #endregion
 
@@ -38,7 +38,7 @@ namespace Bridge.Jolt.Services
         /// Sets a service provider to use for this application.
         /// </summary>
         /// <param name="provider"></param>
-        public static void SetServiceProvider(IServiceProvider provider)
+        public static void SetServiceProvider(IServices provider)
         {
             Default = provider ?? throw new ArgumentNullException(nameof(provider));
         }
@@ -52,11 +52,11 @@ namespace Bridge.Jolt.Services
         {
             ServiceCollection services = defaultJoltServices.CopyWithoutInstances();;
 
-            IServiceProvider startupProvider = services.BuildServiceProvider();
+            IServices startupProvider = services.BuildServiceProvider();
             IStartup startup = ActivatorUtilities.CreateInstance<T>(startupProvider);
             startup.ConfigureServices(services);
 
-            IServiceProvider provider = services.BuildServiceProvider();
+            IServices provider = services.BuildServiceProvider();
             SetServiceProvider(provider);
         }
 

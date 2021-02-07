@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bridge.Jolt.Services
+namespace Jolt.Services
 {
     /// <summary>
     /// Describes a single registered service, and keeps track of singleton instances.
@@ -58,7 +58,7 @@ namespace Bridge.Jolt.Services
         /// </summary>
         /// <param name="provider">Service provider to use if the service has to be created.</param>
         /// <returns></returns>
-        public object GetOrCreateInstance(IServiceProvider provider)
+        public object GetOrCreateInstance(IServices provider)
         {
             if (this.Singleton)
             {

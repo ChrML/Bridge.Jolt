@@ -1,4 +1,4 @@
-﻿namespace Bridge.Jolt
+﻿namespace Jolt
 {
     /// <summary>
     /// Provides information about the state of a pending task.

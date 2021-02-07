@@ -1,6 +1,6 @@
 ﻿using Retyped;
 
-namespace Bridge.Jolt
+namespace Jolt
 {
     /// <summary>
     /// Represents any class that can be displayed as a HTML- element by providing its root DOM- element.

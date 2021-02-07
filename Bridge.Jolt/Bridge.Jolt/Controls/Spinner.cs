@@ -1,9 +1,9 @@
-﻿using Bridge.Jolt.Abstractions;
-using Bridge.Jolt.Services;
+﻿using Jolt.Abstractions;
+using Jolt.Services;
 using Retyped;
 using System;
 
-namespace Bridge.Jolt.Controls
+namespace Jolt.Controls
 {
     /// <summary>
     /// Implements a control for indicating the progress of an ongoing action.

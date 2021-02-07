@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bridge.Jolt.Controls
+namespace Jolt.Controls
 {
     /// <summary>
     /// Provides event arguments when items in a <see cref="ListView"/> has been clicked by the user.

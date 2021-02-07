@@ -1,7 +1,7 @@
 ﻿using Retyped;
 using System;
 
-namespace Bridge.Jolt.Controls
+namespace Jolt.Controls
 {
     /// <summary>
     /// Implements a single item in a listview.

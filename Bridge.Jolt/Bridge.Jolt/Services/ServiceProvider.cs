@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Bridge.Jolt.Services
+namespace Jolt.Services
 {
     /// <summary>
     /// Implements the service provider of the default dependency-injection implementation.
     /// </summary>
-    class ServiceProvider: IServiceProvider
+    class ServiceProvider: IServices
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceProvider"/> class.

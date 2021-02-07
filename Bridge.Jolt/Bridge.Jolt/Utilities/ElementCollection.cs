@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Bridge.Jolt.Utilities
+namespace Jolt.Utilities
 {
     /// <summary>
     /// Implements a collection of elements that map ites element items directly to a DOM- parent.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bridge.Jolt.Controls
+namespace Jolt.Controls
 {
     /// <summary>
     /// Implements a label control to display static text.

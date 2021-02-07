@@ -7,7 +7,7 @@
     <ProjectGuid>{5A9F040F-E32D-4D8C-844F-76FD38ECC16C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bridge.Demo</RootNamespace>
+    <RootNamespace>Jolt.Demo</RootNamespace>
     <AssemblyName>Bridge.Demo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

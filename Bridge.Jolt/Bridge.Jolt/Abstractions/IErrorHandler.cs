@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bridge.Jolt.Abstractions
+namespace Jolt.Abstractions
 {
     /// <summary>
     /// Represents any service that may be invoked when unhandled errors occur.

@@ -1,12 +1,10 @@
-﻿using Bridge.Demo.Controls;
-using Bridge.Demo.CustomService;
-using Bridge.Jolt;
-using Bridge.Jolt.Controls;
-using Bridge.Jolt.Services;
+﻿using Jolt.Controls;
+using Jolt.Demo.Controls;
+using Jolt.Demo.CustomService;
+using Jolt.Services;
 using Retyped;
-using System.Threading.Tasks;
 
-namespace Bridge.Demo
+namespace Jolt.Demo
 {
     public static class Program
     {

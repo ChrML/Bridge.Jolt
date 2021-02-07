@@ -1,7 +1,7 @@
 ﻿using Retyped;
 using System;
 
-namespace Bridge.Jolt.Controls
+namespace Jolt.Controls
 {
     /// <summary>
     /// Simple base class for HTML controls.

@@ -1,4 +1,4 @@
-﻿namespace Bridge.Demo.CustomService
+﻿namespace Jolt.Demo.CustomService
 {
     public class OtherService: IOtherService
     {

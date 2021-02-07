@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bridge.Demo.CustomService
+namespace Jolt.Demo.CustomService
 {
     public class MyCustomService: IMyCustomService
     {

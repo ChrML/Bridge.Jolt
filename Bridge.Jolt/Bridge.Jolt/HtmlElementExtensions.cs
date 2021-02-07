@@ -1,7 +1,7 @@
 ﻿using Retyped;
 using System;
 
-namespace Bridge.Jolt
+namespace Jolt
 {
     /// <summary>
     /// Provides helpful extensions methods that may be used on any HTML- element.

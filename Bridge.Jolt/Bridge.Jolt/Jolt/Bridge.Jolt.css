@@ -21,7 +21,7 @@
 
 /** Controls -> Button
 */
-.Bridge-Jolt-Controls-Button {
+.Jolt-Controls-Button {
     background-color: var(--jolt-color-button-bg);
     border: 1px solid;
     color: var(--jolt-color-button);
@@ -37,24 +37,24 @@
     white-space: normal;
 }
 
-.Bridge-Jolt-Controls-Button:hover {
+.Jolt-Controls-Button:hover {
     background-color: var(--jolt-color-button-bg-hover);
 }
 
-.Bridge-Jolt-Controls-Button.Disabled {
+.Jolt-Controls-Button.Disabled {
     cursor: unset;
     filter: grayscale(100%);
 }
 
-.Bridge-Jolt-Controls-Button.InProgress {
+.Jolt-Controls-Button.InProgress {
     cursor: wait;
 }
 
-.Bridge-Jolt-Controls-Button.InProgress img {
+.Jolt-Controls-Button.InProgress img {
     height: 100%;
 }
 
-.Bridge-Jolt-Controls-Button-Image {
+.Jolt-Controls-Button-Image {
     display: inline-block;
     height: 1em;
     margin-right: 0.5em;
@@ -62,7 +62,7 @@
     width: 1em;
 }
 
-.Bridge-Jolt-Controls-Button-Text {
+.Jolt-Controls-Button-Text {
     display: inline-block;
     vertical-align: middle;
 }
@@ -70,39 +70,39 @@
 
 /** Controls -> Label
 */
-.Bridge-Jolt-Controls-Label {
+.Jolt-Controls-Label {
 }
 
 
 /** Controls -> ListView
 */
-.Bridge-Jolt-Controls-ListView {
+.Jolt-Controls-ListView {
     overflow: hidden;
     background-color: var(--jolt-color-listview-bg);
 }
 
-.Bridge-Jolt-Controls-ListView-Items {
+.Jolt-Controls-ListView-Items {
     height: 100%;
     width: 100%;
     overflow: auto;
 }
 
-.Bridge-Jolt-Controls-ListView-TextContent {
+.Jolt-Controls-ListView-TextContent {
     color: var(--jolt-color-listview);
 }
 
-.Bridge-Jolt-Controls-ListViewItem {
+.Jolt-Controls-ListViewItem {
     cursor: pointer;
     margin-bottom: 2px;
     overflow: hidden;
     padding: 1em 0.5em 1em 0.5em;
 }
 
-.Bridge-Jolt-Controls-ListViewItem.Selected {
+.Jolt-Controls-ListViewItem.Selected {
     background-color: var(--jolt-color-listview-bg-item-selected);
     cursor: unset;
 }
 
-.Bridge-Jolt-Controls-ListViewItem:hover:not(.Selected) {
+.Jolt-Controls-ListViewItem:hover:not(.Selected) {
     background-color: var(--jolt-color-listview-bg-item-hover);
 }

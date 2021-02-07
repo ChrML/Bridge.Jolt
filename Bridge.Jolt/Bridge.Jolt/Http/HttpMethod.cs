@@ -1,4 +1,4 @@
-﻿namespace Bridge.Jolt.Http
+﻿namespace Jolt.Http
 {
     /// <summary>
     /// Provides information about a HTTP- method used to call a web-API.

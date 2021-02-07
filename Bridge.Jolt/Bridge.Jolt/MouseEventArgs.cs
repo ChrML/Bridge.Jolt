@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Bridge.Jolt
+namespace Jolt
 {
     /// <summary>
     /// Provides event arguments for mouse related events.

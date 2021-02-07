@@ -1,4 +1,4 @@
-﻿namespace Bridge.Jolt.Services
+﻿namespace Jolt.Services
 {
     /// <summary>
     /// Represents a collection of services.
@@ -29,6 +29,14 @@
         /// Builds a service provider that contains all the services added to this collection.
         /// </summary>
         /// <returns>Returns a service provider that may be used to resolve these services.</returns>
-        IServiceProvider BuildServiceProvider();
+        IServices BuildServiceProvider();
+
+        /// <summary>
+        /// Removes all previously registered services of type <typeparamref name="TService"/>. <br/>
+        /// </summary>
+        /// <typeparam name="TService">The type that should be removed from the collection.</typeparam>
+        /// <returns>Returns this service collection.</returns>
+        IServiceCollection RemoveServices<TService>()
+            where TService : class;
     }
 }

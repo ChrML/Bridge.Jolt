@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Bridge.Jolt.Services
+namespace Jolt.Services
 {
     /// <summary>
     /// Implements a service collection that may be used to add services to a service container.
@@ -73,7 +73,7 @@ namespace Bridge.Jolt.Services
         }
 
         /// <inheritdoc/>
-        public IServiceProvider BuildServiceProvider()
+        public IServices BuildServiceProvider()
         {
             Dictionary<Type, ServiceDescriptor> copy = new Dictionary<Type, ServiceDescriptor>();
             foreach (KeyValuePair<Type, ServiceDescriptor> service in this.services)
@@ -82,6 +82,13 @@ namespace Bridge.Jolt.Services
             }
 
             return new ServiceProvider(copy);
+        }
+
+        /// <inheritdoc/>
+        public IServiceCollection RemoveServices<TService>() where TService : class
+        {
+            this.services.Remove(typeof(TService));
+            return this;
         }
 
         #endregion

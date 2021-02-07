@@ -1,10 +1,10 @@
-﻿using Bridge.Jolt.Abstractions;
-using Bridge.Jolt.Services;
-using Bridge.Jolt.Utilities;
+﻿using Jolt.Abstractions;
+using Jolt.Services;
+using Jolt.Utilities;
 using Retyped;
 using System;
 
-namespace Bridge.Jolt.Controls
+namespace Jolt.Controls
 {
     /// <summary>
     /// Implements a control that can render a list of controls.

@@ -1,4 +1,4 @@
-﻿namespace Bridge.Jolt.Abstractions
+﻿namespace Jolt.Abstractions
 {
     /// <summary>
     /// Represents a service that can provide image URL's for the standard Jolt controls.

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Bridge.Jolt.Demo
+namespace Jolt.Demo
 {
     public class Program
     {

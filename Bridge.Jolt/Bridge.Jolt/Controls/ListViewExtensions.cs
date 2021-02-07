@@ -1,7 +1,7 @@
-﻿using Bridge.Jolt.Utilities;
+﻿using Jolt.Utilities;
 using System;
 
-namespace Bridge.Jolt.Controls
+namespace Jolt.Controls
 {
     /// <summary>
     /// Provides helpful extension methods related to the <see cref="ListView"/> control.

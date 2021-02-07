@@ -1,4 +1,4 @@
-﻿namespace Bridge.Jolt.Services
+﻿namespace Jolt.Services
 {
     /// <summary>
     /// Internal class for resolving services for use by Jolt- classes.

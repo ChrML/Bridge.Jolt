@@ -1,9 +1,10 @@
-﻿using Bridge.Jolt.Abstractions;
-using Bridge.Jolt.Http;
+﻿using Bridge;
+using Jolt.Abstractions;
+using Jolt.Http;
 using System;
 using System.Threading.Tasks;
 
-namespace Bridge.Jolt.Services.Default
+namespace Jolt.Services.Default
 {
     /// <summary>
     /// Provides an implementation of the <see cref="IApiClient"/> that uses the JSON- format.

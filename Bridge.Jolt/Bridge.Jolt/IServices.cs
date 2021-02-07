@@ -1,12 +1,14 @@
-﻿using Bridge.Jolt.Services;
-using System;
+﻿using System;
 
-namespace Bridge.Jolt
+namespace Jolt
 {
+    // NOTE: The System.IServiceProvider would be the correct interface to use for this.
+    //       However Bridge.NET has disabled it and does not allow us to redeclare it.
+
     /// <summary>
     /// Represents a class that can provide services for the application.
     /// </summary>
-    public interface IServiceProvider
+    public interface IServices
     {
         /// <summary>
         /// Gets the service of the given service type if it's available.

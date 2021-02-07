@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Bridge.Jolt.Services
+namespace Jolt.Services
 {
     /// <summary>
     /// Provides utilities to create classes using a service provider to resolve its dependencies.
@@ -16,7 +16,7 @@ namespace Bridge.Jolt.Services
         /// <typeparam name="T">The type to create.</typeparam>
         /// <param name="provider">The service provider for resolving services.</param>
         /// <returns>Returns the new instance created.</returns>
-        public static T CreateInstance<T>(IServiceProvider provider) where T : class
+        public static T CreateInstance<T>(IServices provider) where T : class
         {
             if (provider == null) throw new ArgumentNullException(nameof(provider));
             return (T)CreateInstance(provider, typeof(T));
@@ -28,7 +28,7 @@ namespace Bridge.Jolt.Services
         /// <param name="provider">The service provider for resolving services.</param>
         /// <param name="type">The type to create.</param>
         /// <returns>Returns the new instance created.</returns>
-        public static object CreateInstance(IServiceProvider provider, Type type)
+        public static object CreateInstance(IServices provider, Type type)
         {
             // Check sanity.
             if (provider == null) throw new ArgumentNullException(nameof(provider));
@@ -58,7 +58,7 @@ namespace Bridge.Jolt.Services
         /// <summary>
         /// Recursively resolves the dependencies of the constructor.
         /// </summary>
-        static object[] ResolveConstructorDependencies(Type type, ConstructorInfo constructor, IServiceProvider provider)
+        static object[] ResolveConstructorDependencies(Type type, ConstructorInfo constructor, IServices provider)
         {
             ParameterInfo[] parameters = constructor.GetParameters();
 

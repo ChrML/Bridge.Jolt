@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Bridge.Jolt.Services
+namespace Jolt.Services
 {
     /// <summary>
-    /// Provides extension methods for <see cref="IServiceProvider"/>.
+    /// Provides extension methods for <see cref="IServices"/>.
     /// </summary>
     public static class ServiceProviderExtensions
     {
@@ -13,7 +13,7 @@ namespace Bridge.Jolt.Services
         /// </summary>
         /// <typeparam name="TService">The service to resolve.</typeparam>
         /// <returns>Returns the instance of the service to use.</returns>
-        public static TService Resolve<TService>(this IServiceProvider provider) 
+        public static TService Resolve<TService>(this IServices provider) 
             where TService : class
         {
             if (provider == null) throw new ArgumentNullException(nameof(provider));

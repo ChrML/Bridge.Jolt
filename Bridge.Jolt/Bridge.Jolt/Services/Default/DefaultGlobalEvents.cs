@@ -1,8 +1,9 @@
-﻿using Bridge.Jolt.Abstractions;
+﻿using Bridge;
+using Jolt.Abstractions;
 using Retyped;
 using System;
 
-namespace Bridge.Jolt.Services.Default
+namespace Jolt.Services.Default
 {
     /// <summary>
     /// Provides a default implementation of the <see cref="IGlobalEvents"/> service that connects to the browser's events.

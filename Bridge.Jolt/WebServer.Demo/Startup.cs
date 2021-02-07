@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
 
-namespace Bridge.Jolt.Demo
+namespace Jolt.Demo
 {
     public class Startup
     {

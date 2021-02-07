@@ -1,4 +1,4 @@
-﻿namespace Bridge.Jolt.Services
+﻿namespace Jolt.Services
 {
     /// <summary>
     /// Provides an interface that may be inherited by Startup- configuration classes.
@@ -15,6 +15,6 @@
         /// The startup implementation may use the services here to perform additional initialization here.
         /// </summary>
         /// <param name="provider">The service provider built from the services added by <see cref="ConfigureServices(IServiceCollection)"/>.</param>
-        void Configure(IServiceProvider provider);
+        void Configure(IServices provider);
     }
 }

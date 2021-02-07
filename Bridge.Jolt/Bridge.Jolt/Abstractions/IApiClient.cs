@@ -1,7 +1,7 @@
-﻿using Bridge.Jolt.Http;
+﻿using Jolt.Http;
 using System.Threading.Tasks;
 
-namespace Bridge.Jolt.Abstractions
+namespace Jolt.Abstractions
 {
     /// <summary>
     /// Represents a client that can call an API. This abstraction has no meaning of which dataformat will be used which is up to the implementating service.

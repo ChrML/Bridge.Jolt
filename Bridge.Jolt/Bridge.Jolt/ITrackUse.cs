@@ -1,4 +1,4 @@
-﻿namespace Bridge.Jolt
+﻿namespace Jolt
 {
     /// <summary>
     /// Interface that should be implemented by elements or controls that need a notification when added or removed to the DOM- tree.

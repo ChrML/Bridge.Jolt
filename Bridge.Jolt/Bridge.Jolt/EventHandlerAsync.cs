@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Bridge.Jolt
+namespace Jolt
 {
     /// <summary>
     /// Delegate that represents an asynchronous event handler.

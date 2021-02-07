@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Bridge.Jolt
+namespace Jolt
 {
     /// <summary>
     /// Represents any element or control that requires asynchronous load before display. Such as a control loading something from the server.
