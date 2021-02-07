@@ -16,6 +16,10 @@
     --jolt-color-listview-bg: white;
     --jolt-color-listview-bg-item-hover: #eeeeee;
     --jolt-color-listview-bg-item-selected: #dddddd;
+    --jolt-color-textbox: black;
+    --jolt-color-textbox-bg: white;
+    --jolt-color-textbox-border: #808080;
+    --jolt-color-textbox-disabled-bg: #e0e0e0;
 }
 
 
@@ -105,4 +109,58 @@
 
 .Jolt-Controls-ListViewItem:hover:not(.Selected) {
     background-color: var(--jolt-color-listview-bg-item-hover);
+}
+
+
+/** Controls -> TextBox
+*/
+.Jolt-Controls-TextBox {
+}
+
+.Jolt-Controls-TextBox > input {
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+.Jolt-Controls-TextBox > input:disabled {
+    background: #a5a5a7;
+}
+
+.Jolt-Controls-TextBox > input:focus {
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+    transition: all 0.30s ease-in-out;
+}
+
+.Jolt-Controls-TextBox.ValidateError input:focus {
+    box-shadow: 0 0 8px #F7462d;
+    border: 1px solid #F7462d;
+}
+
+.Jolt-Controls-TextBox.ValidateError input:not(:focus) {
+    background: #c53824;
+    color: white;
+    transition: all 0.30s ease-in-out;
+}
+
+.Jolt-Controls-TextBox > textarea {
+    background: var(--jolt-color-textbox-bg);
+    border: 1px solid black;
+    border-color: var(--jolt-color-textbox-border);
+    box-sizing: border-box;
+    color: var(--jolt-color-textbox);
+    min-height: 40px;
+    max-height: unset;
+    max-width: unset;
+}
+
+.Jolt-Controls-TextBox > textarea:focus {
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+    transition: all 0.30s ease-in-out;
+}
+
+.Jolt-Controls-TextBox > textarea:disabled {
+    background-color: var(--jolt-color-textbox-disabled-bg);
 }

@@ -1,4 +1,5 @@
-﻿using Retyped;
+﻿using Jolt.Services;
+using Retyped;
 using System;
 
 namespace Jolt
@@ -48,6 +49,23 @@ namespace Jolt
             if (element == null) throw new ArgumentNullException(nameof(element));
             if (append == null) throw new ArgumentNullException(nameof(append));
             dom.HTMLElement item = append.DomElement ?? throw new InvalidOperationException("The HTML- element from the appended item was null.");
+            element.appendChild(item);
+            return element;
+        }
+
+        /// <summary>
+        /// Appends a class that contains a HTML- element using dependency-injection and the current service provider.
+        /// </summary>
+        /// <typeparam name="T">Control kind to append.</typeparam>
+        /// <param name="element">The element to append another control to.</param>
+        /// <returns>Returns the value of <paramref name="element"/>.</returns>
+        public static dom.HTMLElement Append<T>(this dom.HTMLElement element) where T : class, IHtmlElement
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+
+            T child = ActivatorUtilities.CreateInstance<T>(AppServices.Default);
+            dom.HTMLElement item = child.DomElement ?? throw new InvalidOperationException("The HTML- element in the created item was null.");
+
             element.appendChild(item);
             return element;
         }

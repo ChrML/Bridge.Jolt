@@ -12,14 +12,9 @@ namespace Jolt.Demo
         {
             AppServices.UseStartup<Startup>();
 
-            IMyCustomService test = AppServices.Default.Resolve<IMyCustomService>();
-
             dom.HTMLElement root = Html.GetByIdRequired<dom.HTMLElement>("Demo-Root");
 
             Label label1 = new Label("Here is a few buttons: ");
-
-
-            ButtonDemo btnDemo = new ButtonDemo();
 
 
             ListView list1 = new ListView();
@@ -30,7 +25,8 @@ namespace Jolt.Demo
 
             root
                 .Append(label1)
-                .Append(btnDemo)
+                .Append<ButtonDemo>()
+                .Append<TextBoxDemo>()
                 .Append(list1);
         }
     }
