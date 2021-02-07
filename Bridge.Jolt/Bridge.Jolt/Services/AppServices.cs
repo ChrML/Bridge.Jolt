@@ -58,6 +58,8 @@ namespace Jolt.Services
 
             IServices provider = services.BuildServiceProvider();
             SetServiceProvider(provider);
+
+            startup.Configure(provider);
         }
 
         #endregion
