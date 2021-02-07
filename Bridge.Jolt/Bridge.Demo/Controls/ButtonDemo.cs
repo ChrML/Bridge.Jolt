@@ -14,10 +14,7 @@ namespace Bridge.Demo.Controls
         /// </summary>
         public ButtonDemo()
         {
-            Button btn1 = new Button
-            {
-                Text = "Click me"
-            };
+            Button btn1 = new Button("Click me");
             btn1.Click += (o, e) => { };
 
             Button btn2 = new Button

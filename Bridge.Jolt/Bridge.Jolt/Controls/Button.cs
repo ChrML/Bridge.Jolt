@@ -28,6 +28,7 @@ namespace Bridge.Jolt.Controls
         /// Initializes a new instance of the <see cref="Button"/> class with the given text.
         /// </summary>
         public Button(string text)
+            : this()
         {
             this.Text = text;
         }
