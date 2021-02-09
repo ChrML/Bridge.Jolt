@@ -20,6 +20,7 @@
     --jolt-color-textbox-bg: white;
     --jolt-color-textbox-border: #808080;
     --jolt-color-textbox-disabled-bg: #e0e0e0;
+    --jolt-color-textbox-validation-error: red;
 }
 
 
@@ -75,6 +76,7 @@
 /** Controls -> Label
 */
 .Jolt-Controls-Label {
+    display: inline-block;
 }
 
 
@@ -115,12 +117,18 @@
 /** Controls -> TextBox
 */
 .Jolt-Controls-TextBox {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
 }
 
 .Jolt-Controls-TextBox > input {
     border: 1px solid black;
     box-sizing: border-box;
+    display: block;
+    height: 100%;
     padding: 0.5em 1em 0.5em 1em;
+    width: 100%;
 }
 
 .Jolt-Controls-TextBox > input:disabled {
@@ -150,9 +158,12 @@
     border-color: var(--jolt-color-textbox-border);
     box-sizing: border-box;
     color: var(--jolt-color-textbox);
-    min-height: 40px;
+    height: 5em;
+    min-height: 2em;
+    min-width: 100%;
     max-height: unset;
-    max-width: unset;
+    max-width: 100%;
+    width: 100%;
 }
 
 .Jolt-Controls-TextBox > textarea:focus {
@@ -163,4 +174,10 @@
 
 .Jolt-Controls-TextBox > textarea:disabled {
     background-color: var(--jolt-color-textbox-disabled-bg);
+}
+
+.Jolt-Controls-TextBox > .Jolt-Controls-TextBox-ValidateErrorLabel {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    color: var(--jolt-color-textbox-validation-error);
 }

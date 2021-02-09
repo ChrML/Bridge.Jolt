@@ -331,7 +331,7 @@ namespace Jolt.Controls
                     case TextBoxKind.Standard:
                     case TextBoxKind.Password:
                         dom.HTMLInputElement input = this.EnsureInputKind();
-                        input.type = value == TextBoxKind.Password ? "password" : null;
+                        input.type = value == TextBoxKind.Password ? "password" : "text";
                         break;
 
                     case TextBoxKind.MultiLine:
@@ -351,7 +351,7 @@ namespace Jolt.Controls
                 this.input.disabled = this._disabled;
                 this.input.placeholder = this._placeholder;
                 this.input.readOnly = this._readOnly;
-                this.input.type = this._kind == TextBoxKind.Password ? "password" : null;
+                this.input.type = this._kind == TextBoxKind.Password ? "password" : "text";
             }
             else if (this.area != null)
             {
