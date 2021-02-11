@@ -1,4 +1,5 @@
-﻿using Retyped;
+﻿using Bridge;
+using Retyped;
 using System;
 
 namespace Jolt.Controls
@@ -6,6 +7,7 @@ namespace Jolt.Controls
     /// <summary>
     /// Implements an editable textbox control.
     /// </summary>
+    [Reflectable(true)]
     public class TextBox : HtmlControl
     {
         #region Constructors

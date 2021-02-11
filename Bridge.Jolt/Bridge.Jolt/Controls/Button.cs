@@ -1,4 +1,5 @@
-﻿using Jolt.Abstractions;
+﻿using Bridge;
+using Jolt.Abstractions;
 using Jolt.Services;
 using Retyped;
 using System;
@@ -9,6 +10,7 @@ namespace Jolt.Controls
     /// <summary>
     /// Implements a button control that may perform both synchronous or asynchronos operations.
     /// </summary>
+    [Reflectable(true)]
     public class Button: HtmlControl
     {
         #region Constructors

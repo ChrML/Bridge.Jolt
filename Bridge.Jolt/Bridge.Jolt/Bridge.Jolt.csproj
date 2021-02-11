@@ -71,6 +71,7 @@
     <Compile Include="EventHandlerAsync.cs" />
     <Compile Include="Controls\HtmlControl.cs" />
     <Compile Include="Controls\Spinner.cs" />
+    <Compile Include="Extensions\DomBuildExt.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\FieldInfoExtensions.cs" />
     <Compile Include="Extensions\PropertyDescriptorExtensions.cs" />

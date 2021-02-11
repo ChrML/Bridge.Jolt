@@ -1,4 +1,5 @@
-﻿using Jolt.Abstractions;
+﻿using Bridge;
+using Jolt.Abstractions;
 using Jolt.Services;
 using Jolt.Utilities;
 using Retyped;
@@ -9,6 +10,7 @@ namespace Jolt.Controls
     /// <summary>
     /// Implements a control that can render a list of controls.
     /// </summary>
+    [Reflectable(true)]
     public class ListView: HtmlControl
     {
         #region Constructors

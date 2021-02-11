@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Bridge;
+using System;
 
 namespace Jolt.Controls
 {
     /// <summary>
     /// Implements a label control to display static text.
     /// </summary>
+    [Reflectable(true)]
     public class Label: HtmlControl
     {
         #region Constructors

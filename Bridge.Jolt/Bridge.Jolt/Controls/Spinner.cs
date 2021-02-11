@@ -1,4 +1,5 @@
-﻿using Jolt.Abstractions;
+﻿using Bridge;
+using Jolt.Abstractions;
 using Jolt.Services;
 using Retyped;
 using System;
@@ -8,6 +9,7 @@ namespace Jolt.Controls
     /// <summary>
     /// Implements a control for indicating the progress of an ongoing action.
     /// </summary>
+    [Reflectable(true)]
     public sealed class Spinner
     {
         #region Constructors

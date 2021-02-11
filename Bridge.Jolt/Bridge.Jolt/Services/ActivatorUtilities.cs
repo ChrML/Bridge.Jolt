@@ -35,20 +35,35 @@ namespace Jolt.Services
             if (type == null) throw new ArgumentNullException(nameof(type));
 
             // Get the constructor.
+            ConstructorInfo defaultCtor = null;
             ConstructorInfo[] constructors = type.GetConstructors();
             if (constructors == null || constructors.Length == 0)
             {
                 throw new InvalidOperationException($"Unable to create {type.FullName}. Make sure this class is Bridge.NET reflectable, metadata is included and has a public constructor.");
             }
-            else if (constructors.Length > 1)
+            else if (constructors.Length == 1)
             {
-                throw new InvalidOperationException($"Unable to create {type.FullName}. More than 1 constructor was found for this type.");
+                defaultCtor = constructors[0];
             }
-            ConstructorInfo constructor = constructors[0];
+            else
+            {
+                for (int i = 0; i < constructors.Length; i++)
+                {
+                    if (constructors[i].ParameterTypes?.Length == 0)
+                    {
+                        defaultCtor = constructors[i];
+                    }
+                }
+
+                if (defaultCtor == null)
+                {
+                    throw new InvalidOperationException($"Unable to create {type.FullName}. More than 1 constructor was found for this type, but no default constructor.");
+                }
+            }
 
             // Create the instance.
-            object[] parameters = ResolveConstructorDependencies(type, constructor, provider);
-            return constructor.Invoke(parameters);
+            object[] parameters = ResolveConstructorDependencies(type, defaultCtor, provider);
+            return defaultCtor.Invoke(parameters);
         }
 
         #endregion
