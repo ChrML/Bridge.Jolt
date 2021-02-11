@@ -1,5 +1,4 @@
 ﻿using Jolt.Demo.CustomService;
-using Jolt.Services;
 using Bridge;
 
 namespace Jolt.Demo

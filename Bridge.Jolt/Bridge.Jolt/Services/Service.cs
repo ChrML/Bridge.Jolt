@@ -1,4 +1,4 @@
-﻿namespace Jolt.Services
+﻿namespace Jolt
 {
     /// <summary>
     /// Internal class for resolving services for use by Jolt- classes.

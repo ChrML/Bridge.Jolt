@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Jolt.Services
+namespace Jolt
 {
     /// <summary>
     /// Provides extension methods for <see cref="IServices"/>.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Jolt.Services
+namespace Jolt
 {
     /// <summary>
     /// Implements a service collection that may be used to add services to a service container.

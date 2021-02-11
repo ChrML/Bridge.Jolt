@@ -1,7 +1,7 @@
 ﻿using Bridge;
 using Jolt.Abstractions;
 
-namespace Jolt.Services.Default
+namespace Jolt.StandardServices.Default
 {
     /// <summary>
     /// Implements the locale interface (<see cref="IJoltLocale"/>) with the default English- language strings.

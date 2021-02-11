@@ -3,7 +3,7 @@ using Jolt.Abstractions;
 using Retyped;
 using System;
 
-namespace Jolt.Services.Default
+namespace Jolt.StandardServices.Default
 {
     /// <summary>
     /// Provides a default implementation of the <see cref="IGlobalEvents"/> service that connects to the browser's events.

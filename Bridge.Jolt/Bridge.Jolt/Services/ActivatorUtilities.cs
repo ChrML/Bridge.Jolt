@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Jolt.Services
+namespace Jolt
 {
     /// <summary>
     /// Provides utilities to create classes using a service provider to resolve its dependencies.

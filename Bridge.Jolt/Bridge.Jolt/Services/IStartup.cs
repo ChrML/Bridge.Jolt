@@ -1,4 +1,4 @@
-﻿namespace Jolt.Services
+﻿namespace Jolt
 {
     /// <summary>
     /// Provides an interface that may be inherited by Startup- configuration classes.

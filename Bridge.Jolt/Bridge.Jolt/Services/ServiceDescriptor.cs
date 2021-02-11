@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Jolt.Services
+namespace Jolt
 {
     /// <summary>
     /// Describes a single registered service, and keeps track of singleton instances.

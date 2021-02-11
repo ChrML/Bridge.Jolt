@@ -82,13 +82,24 @@
     <Compile Include="ITrackUse.cs" />
     <Compile Include="MouseButton.cs" />
     <Compile Include="MouseEventArgs.cs" />
+    <Compile Include="Navigation\AfterNavigateEventArgs.cs" />
+    <Compile Include="Navigation\BeforeNavigateEventArgs.cs" />
+    <Compile Include="Navigation\BrowserHistoryPopEventArgs.cs" />
+    <Compile Include="Navigation\IBrowserHistory.cs" />
+    <Compile Include="Navigation\INavigation.cs" />
+    <Compile Include="Navigation\INavigator.cs" />
+    <Compile Include="Navigation\NativeBrowserHistory.cs" />
+    <Compile Include="Navigation\NavigateData.cs" />
+    <Compile Include="Navigation\NavigateOptions.cs" />
+    <Compile Include="Navigation\NavigationExtensions.cs" />
+    <Compile Include="Services.cs" />
     <Compile Include="Services\ActivatorUtilities.cs" />
     <Compile Include="Services\AppServices.cs" />
-    <Compile Include="Services\Default\DefaultErrorHandler.cs" />
-    <Compile Include="Services\Default\DefaultGlobalEvents.cs" />
-    <Compile Include="Services\Default\DefaultJoltImageProvider.cs" />
-    <Compile Include="Services\Default\JoltEnglishLocale.cs" />
-    <Compile Include="Services\Default\JsonApiClient.cs" />
+    <Compile Include="StandardServices\DefaultErrorHandler.cs" />
+    <Compile Include="StandardServices\DefaultGlobalEvents.cs" />
+    <Compile Include="StandardServices\DefaultJoltImageProvider.cs" />
+    <Compile Include="StandardServices\JoltEnglishLocale.cs" />
+    <Compile Include="StandardServices\JsonApiClient.cs" />
     <Compile Include="Services\IServiceCollection.cs" />
     <Compile Include="Services\IStartup.cs" />
     <Compile Include="Services\Service.cs" />
@@ -106,6 +117,9 @@
     <Compile Include="Utilities\ElementCollection.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="bridge.json" />
     <None Include="packages.config" />
   </ItemGroup>

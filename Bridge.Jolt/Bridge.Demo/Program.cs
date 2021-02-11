@@ -1,6 +1,5 @@
 ﻿using Jolt.Controls;
 using Jolt.Demo.Controls;
-using Jolt.Services;
 using Retyped;
 
 namespace Jolt.Demo

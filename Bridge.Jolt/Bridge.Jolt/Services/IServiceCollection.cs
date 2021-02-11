@@ -1,4 +1,4 @@
-﻿namespace Jolt.Services
+﻿namespace Jolt
 {
     /// <summary>
     /// Represents a collection of services.

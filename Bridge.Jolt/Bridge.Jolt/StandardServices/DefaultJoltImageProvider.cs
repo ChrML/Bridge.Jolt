@@ -1,7 +1,7 @@
 ﻿using Bridge;
 using Jolt.Abstractions;
 
-namespace Jolt.Services.Default
+namespace Jolt.StandardServices.Default
 {
     /// <summary>
     /// Provides a default implementation of the <see cref="IJoltImageProvider"/> service.

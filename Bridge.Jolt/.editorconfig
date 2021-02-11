@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# IDE0053: Use expression body for lambda expressions
+dotnet_diagnostic.IDE0053.severity = none

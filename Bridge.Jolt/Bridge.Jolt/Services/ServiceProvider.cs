@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Jolt.Services
+namespace Jolt
 {
     /// <summary>
     /// Implements the service provider of the default dependency-injection implementation.

@@ -1,5 +1,4 @@
 ﻿using Bridge;
-using Jolt.Services;
 using Retyped;
 using System;
 using System.Collections.Generic;
@@ -62,7 +61,7 @@ namespace Jolt
         /// <param name="parent"></param>
         /// <param name="className"></param>
         /// <param name="createInstance"></param>
-        /// <param name="callback"></param>
+        /// <param name="config"></param>
         /// <returns></returns>
         public static dom.HTMLElement New<TControl>(this dom.HTMLElement parent, string className, Func<IServices, TControl> createInstance, Action<TControl> config = null)
             where TControl : class, IHtmlElement

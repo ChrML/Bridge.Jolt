@@ -4,7 +4,7 @@ using Jolt.Http;
 using System;
 using System.Threading.Tasks;
 
-namespace Jolt.Services.Default
+namespace Jolt.StandardServices.Default
 {
     /// <summary>
     /// Provides an implementation of the <see cref="IApiClient"/> that uses the JSON- format.

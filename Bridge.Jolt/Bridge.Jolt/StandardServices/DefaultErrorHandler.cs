@@ -2,7 +2,7 @@
 using Jolt.Abstractions;
 using System;
 
-namespace Jolt.Services.Default
+namespace Jolt.StandardServices.Default
 {
     /// <summary>
     /// Provides a default implementation of the <see cref="IErrorHandler"/> service.

@@ -1,8 +1,9 @@
 ﻿using Jolt.Abstractions;
-using Jolt.Services.Default;
+using Jolt.Navigation;
+using Jolt.StandardServices.Default;
 using System;
 
-namespace Jolt.Services
+namespace Jolt
 {
     /// <summary>
     /// Implements a default service provider.
@@ -73,11 +74,12 @@ namespace Jolt.Services
         static void AddDefaultJoltServices(IServiceCollection services)
         {
             services
+                .AddSingleton<IApiClient, JsonApiClient>()
+                .AddSingleton<IBrowserHistory, NativeBrowserHistory>()
                 .AddSingleton<IErrorHandler, DefaultErrorHandler>()
                 .AddSingleton<IGlobalEvents, DefaultGlobalEvents>()
                 .AddSingleton<IJoltImageProvider, DefaultJoltImageProvider>()
-                .AddSingleton<IJoltLocale, JoltEnglishLocale>()
-                .AddSingleton<IApiClient, JsonApiClient>();
+                .AddSingleton<IJoltLocale, JoltEnglishLocale>();
         }
 
 
