@@ -1,4 +1,5 @@
-﻿using Retyped;
+﻿using Jolt.Utilities;
+using Retyped;
 using System;
 
 namespace Jolt.Controls
@@ -16,6 +17,11 @@ namespace Jolt.Controls
         protected HtmlControl()
         {
             this.DomElement = Html.NewDiv(this.GetType());
+
+            if (this is ILifecycle lifecycle)
+            {
+                this.DomElement["$Jolt$Lifecycle"] = lifecycle;
+            }
         }
 
         /// <summary>
@@ -26,6 +32,11 @@ namespace Jolt.Controls
         {
             this.DomElement = domElement ?? throw new ArgumentNullException(nameof(domElement));
             domElement.AddClass(Css.GetClass(this.GetType()));
+
+            if (this is ILifecycle lifecycle)
+            {
+                domElement["$Jolt$Lifecycle"] = lifecycle;
+            }
         }
 
         #endregion
@@ -103,6 +114,19 @@ namespace Jolt.Controls
 
         /// <inheritdoc/>
         dom.HTMLElement IHtmlElement.DomElement => this.DomElement;
+
+        #endregion
+
+        #region Privates
+
+#pragma warning disable IDE0052 // Remove unread private members
+
+        /// <summary>
+        /// Track lifecycles here as a part of the HTML- control class because every control that needs to track lifecycle should use this as baseclass.
+        /// </summary>
+        static readonly LifecycleTracker lifecycles = new LifecycleTracker();
+
+#pragma warning restore IDE0052 // Remove unread private members
 
         #endregion
     }

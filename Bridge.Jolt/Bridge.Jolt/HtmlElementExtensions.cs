@@ -31,6 +31,33 @@ namespace Jolt
         }
 
         /// <summary>
+        /// Gets if this element is currently mounted to the DOM- tree.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public static bool IsMounted(this IHtmlElement element)
+        {
+            // Check sanity.
+            if (element == null) throw new ArgumentNullException(nameof(element));
+            dom.Node inner = element.DomElement;
+            if (inner == null) throw new InvalidOperationException("The HTML- element does not have a root.");
+
+            // Rooted if we find the document node.
+            do
+            {
+                if (inner == dom.document)
+                {
+                    return true;
+                }
+
+                inner = inner.parentNode;
+            }
+            while (inner != null);
+
+            return false;
+        }
+
+        /// <summary>
         /// Removes the HTML- element from the DOM- tree.
         /// </summary>
         /// <param name="element">The element to remove from the DOM- tree.</param>

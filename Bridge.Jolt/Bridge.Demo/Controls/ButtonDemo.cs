@@ -1,4 +1,5 @@
 ﻿using Jolt.Controls;
+using System;
 using System.Threading.Tasks;
 
 namespace Jolt.Demo.Controls
@@ -6,7 +7,7 @@ namespace Jolt.Demo.Controls
     /// <summary>
     /// Implements a control for demonstrating all the features of a <see cref="Button"/>.
     /// </summary>
-    class ButtonDemo: HtmlControl
+    class ButtonDemo: HtmlControl, ILifecycle
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ButtonDemo"/> class.
@@ -18,15 +19,19 @@ namespace Jolt.Demo.Controls
 
             Button btn2 = new Button
             {
-                Text = "Click me (2 sec)",
-                ClickAsync = async (o, e) => await Task.Delay(2000)
+                ClickAsync = async (o, e) => await Task.Delay(2000),
+                Text = "Click me (2 sec)"
             };
 
             Button btn3 = new Button
             {
+                ClickAsync = async (o, e) =>
+                {
+                    await Task.Delay(5000);
+                    this.DomElement.Remove();
+                },
                 Image = "img/Play.png",
-                Text = "Play (5 sec)",
-                ClickAsync = async (o, e) => await Task.Delay(5000)
+                Text = "Play (5 sec)"
             };
 
 
@@ -35,6 +40,17 @@ namespace Jolt.Demo.Controls
                 .Append(btn1)
                 .Append(btn2)
                 .Append(btn3);
+        }
+
+        public void Mounted()
+        {
+            Console.WriteLine("Mounted");
+        }
+
+        public void Unmounted()
+        {
+
+            Console.WriteLine("Unmounted");
         }
     }
 }
