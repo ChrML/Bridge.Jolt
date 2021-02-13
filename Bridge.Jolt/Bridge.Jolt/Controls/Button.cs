@@ -19,10 +19,10 @@ namespace Jolt.Controls
         /// </summary>
         public Button()
         {
-            this.spinner = new Spinner(this.DomElement);
+            this.spinner = new Spinner(this.Dom);
             this.Text = "";
-            this.DomElement.onclick = (e) => this.RunClick(MouseEventArgs.FromNative(e));
-            this.DomElement.appendChild(this.domText);
+            this.Dom.onclick = (e) => this.RunClick(MouseEventArgs.FromNative(e));
+            this.Dom.appendChild(this.domText);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Jolt.Controls
                 if (this._disabled != value)
                 {
                     this._disabled = value;
-                    this.DomElement.SetClass("Disabled", value);
+                    this.Dom.SetClass("Disabled", value);
                 }
             }
         }
@@ -208,11 +208,11 @@ namespace Jolt.Controls
 
                     if (this.domImage != null)
                     {
-                        this.DomElement.Append(this.domImage);
+                        this.Dom.Append(this.domImage);
                     }
-                    this.DomElement.Append(this.domText);
+                    this.Dom.Append(this.domText);
 
-                    this.DomElement.SetClass("InProgress", false);
+                    this.Dom.SetClass("InProgress", false);
                     this.UnlockSize();
                     this.spinning = false;
                 }
@@ -222,7 +222,7 @@ namespace Jolt.Controls
                 if (inProgress)
                 {
                     this.LockSize();
-                    this.DomElement.SetClass("InProgress", true);
+                    this.Dom.SetClass("InProgress", true);
                     this.domImage?.Remove();
                     this.domText.Remove();
                     this.spinner.SetStatus(TaskStatus.InProgress);
@@ -238,10 +238,10 @@ namespace Jolt.Controls
         {
             if (!this.sizeFixed)
             {
-                int actualWidth = this.DomElement.offsetWidth;
-                int actualHeight = this.DomElement.offsetHeight;
-                this.DomElement.style.width = actualWidth.ToString() + "px";
-                this.DomElement.style.height = actualHeight.ToString() + "px";
+                int actualWidth = this.Dom.offsetWidth;
+                int actualHeight = this.Dom.offsetHeight;
+                this.Dom.style.width = actualWidth.ToString() + "px";
+                this.Dom.style.height = actualHeight.ToString() + "px";
                 this.sizeFixed = true;
             }
         }
@@ -267,7 +267,7 @@ namespace Jolt.Controls
 
                     if (!this.InProgress)
                     {
-                        this.DomElement.Insert(0, this.domImage);
+                        this.Dom.Insert(0, this.domImage);
                     }
                 }
             }
@@ -280,8 +280,8 @@ namespace Jolt.Controls
         {
             if (this.sizeFixed)
             {
-                this.DomElement.style.width = null;
-                this.DomElement.style.height = null;
+                this.Dom.style.width = null;
+                this.Dom.style.height = null;
                 this.sizeFixed = false;
             }
         }

@@ -16,11 +16,11 @@ namespace Jolt.Controls
         /// </summary>
         protected HtmlControl()
         {
-            this.DomElement = Html.NewDiv(this.GetType());
+            this.Dom = Html.NewDiv(this.GetType());
 
             if (this is ILifecycle lifecycle)
             {
-                this.DomElement["$Jolt$Lifecycle"] = lifecycle;
+                this.Dom["$Jolt$Lifecycle"] = lifecycle;
             }
         }
 
@@ -30,7 +30,7 @@ namespace Jolt.Controls
         /// <param name="domElement">Existing element to use as root for this control.</param>
         protected HtmlControl(dom.HTMLElement domElement)
         {
-            this.DomElement = domElement ?? throw new ArgumentNullException(nameof(domElement));
+            this.Dom = domElement ?? throw new ArgumentNullException(nameof(domElement));
             domElement.AddClass(Css.GetClass(this.GetType()));
 
             if (this is ILifecycle lifecycle)
@@ -48,19 +48,19 @@ namespace Jolt.Controls
         /// </summary>
         public string CssClass
         {
-            get => this.DomElement.GetSwitchCssClass();
-            set => this.DomElement.SwitchCssClass(value);
+            get => this.Dom.GetSwitchCssClass();
+            set => this.Dom.SwitchCssClass(value);
         }
 
         /// <summary>
         /// Gets the DOM- element that is the root of this control.
         /// </summary>
-        protected dom.HTMLElement DomElement { get; }
+        protected dom.HTMLElement Dom { get; }
 
         /// <summary>
         /// Gets if this control currently is focused.
         /// </summary>
-        public virtual bool IsFocused => dom.document.activeElement == this.DomElement;
+        public virtual bool IsFocused => dom.document.activeElement == this.Dom;
         
         /// <summary>
         /// Gets or sets the text of a tooltip to show when the user holds mouse over this control.
@@ -73,7 +73,7 @@ namespace Jolt.Controls
                 if (value != this._tooltip)
                 {
                     this._tooltip = value;
-                    this.DomElement.title = value;
+                    this.Dom.title = value;
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace Jolt.Controls
             {
                 if (value != this._visible)
                 {
-                    this.DomElement.SetDisplay(value);
+                    this.Dom.SetDisplay(value);
                     this._visible = value;
                 }
             }
@@ -105,7 +105,7 @@ namespace Jolt.Controls
         /// </summary>
         public virtual void Focus()
         {
-            this.DomElement.focus();
+            this.Dom.focus();
         }
 
         #endregion
@@ -113,7 +113,7 @@ namespace Jolt.Controls
         #region IHtmlElement- implementation
 
         /// <inheritdoc/>
-        dom.HTMLElement IHtmlElement.DomElement => this.DomElement;
+        dom.HTMLElement IHtmlElement.DomElement => this.Dom;
 
         #endregion
 

@@ -173,7 +173,7 @@ namespace Jolt.Controls
                 this.HasValidationError = false;
                 this.ValidationErrorMessage = null;
 
-                this.DomElement.RemoveClass("ValidateError");
+                this.Dom.RemoveClass("ValidateError");
                 this.validation?.Remove();
                 this.validation = null;
             }
@@ -189,7 +189,7 @@ namespace Jolt.Controls
             if (!this.HasValidationError)
             {
                 this.HasValidationError = true;
-                this.DomElement.AddClass("ValidateError");
+                this.Dom.AddClass("ValidateError");
             }
 
             // Show the validation message.
@@ -206,7 +206,7 @@ namespace Jolt.Controls
                     {
                         CssClass = Css.GetClass<TextBox>("ValidateErrorLabel")
                     };
-                    this.DomElement.Append(this.validation);
+                    this.Dom.Append(this.validation);
                 }
                 this.validation.Text = message;
                 this.ValidationErrorMessage = message;
@@ -267,7 +267,7 @@ namespace Jolt.Controls
                 this.SetStyle();
                 this.SetText(oldText);
 
-                this.DomElement.Append(this.any);
+                this.Dom.Append(this.any);
                 return this.input;
             }
         }
@@ -293,7 +293,7 @@ namespace Jolt.Controls
                 this.SetStyle();
                 this.SetText(oldText);
 
-                this.DomElement.Append(this.any);
+                this.Dom.Append(this.any);
                 return this.area;
             }
         }

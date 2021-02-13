@@ -161,5 +161,28 @@ namespace Jolt
                 config?.Invoke(instance);
             });
         }
+
+        /// <summary>
+        /// Wraps an existing control into a DIV- element.
+        /// </summary>
+        /// <typeparam name="TControl"></typeparam>
+        /// <param name="tag"></param>
+        /// <param name="parent"></param>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static dom.HTMLElement Wrap<TControl>(this dom.HTMLElement parent, string tag, TControl instance)
+            where TControl : class, IHtmlElement
+        {
+            // Check sanity.
+            if (parent == null) throw new ArgumentNullException(nameof(parent));
+            if (instance == null) throw new ArgumentNullException(nameof(instance));
+
+            dom.HTMLElement child = dom.document.createElement(tag);
+
+
+            child.Append(instance);
+            parent.appendChild(child);
+            return parent;
+        }
     }
 }

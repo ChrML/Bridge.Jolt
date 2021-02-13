@@ -11,15 +11,73 @@ namespace Jolt
         #region Methods
 
         /// <summary>
+        /// Appends a contrl to the page's body element.
+        /// </summary>
+        /// <returns></returns>
+        public static dom.HTMLElement AppendToBody<T>() where T : class, IHtmlElement
+        {
+            dom.HTMLElement body = dom.document.body;
+            body.Append<T>();
+            return body;
+        }
+
+
+        /// <summary>
+        /// Appends a contrl to the page's body element.
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static dom.HTMLElement AppendToBody<T>(T instance) where T : class, IHtmlElement
+        {
+            dom.HTMLElement body = dom.document.body;
+            body.Append(instance);
+            return body;
+        }
+
+        /// <summary>
+        /// Appends a contrl to the page's element with the given ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static dom.HTMLElement AppendToId<T>(string id) where T : class, IHtmlElement
+        {
+            dom.HTMLElement parent = GetById<dom.HTMLElement>(id);
+            parent.Append<T>();
+            return parent;
+        }
+
+        /// <summary>
+        /// Appends a contrl to the page's element with the given ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static dom.HTMLElement AppendToId<T>(string id, T instance) where T : class, IHtmlElement
+        {
+            dom.HTMLElement parent = GetById<dom.HTMLElement>(id);
+            parent.Append(instance);
+            return parent;
+        }
+
+        /// <summary>
         /// Gets an element from the document by its ID.
         /// </summary>
         /// <typeparam name="T">The type of element to get.</typeparam>
         /// <param name="id">The ID to get.</param>
         /// <returns>Returns the element if found.</returns>
-        public static T GetById<T>(string id) where T : dom.HTMLElement
+        public static T GetOptionalById<T>(string id) where T : dom.HTMLElement
         {
             if (String.IsNullOrEmpty(id)) throw new ArgumentException("Id was null or empty.", nameof(id));
             return (T)dom.document.getElementById(id);
+        }
+
+        /// <summary>
+        /// Gets the page's body element.
+        /// </summary>
+        /// <returns></returns>
+        public static dom.HTMLElement GetBody()
+        {
+            return dom.document.body;
         }
 
         /// <summary>
@@ -28,7 +86,7 @@ namespace Jolt
         /// <typeparam name="T">The type of element to get.</typeparam>
         /// <param name="id">The ID to get.</param>
         /// <returns>Returns the element.</returns>
-        public static T GetByIdRequired<T>(string id) where T : dom.HTMLElement
+        public static T GetById<T>(string id) where T : dom.HTMLElement
         {
             if (String.IsNullOrEmpty(id)) throw new ArgumentException("Id was null or empty.", nameof(id));
             return (T)dom.document.getElementById(id) ?? throw new InvalidOperationException($"Required element with ID \"{id}\" was not found in the document.");

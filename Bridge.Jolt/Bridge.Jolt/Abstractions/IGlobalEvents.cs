@@ -3,7 +3,7 @@
 namespace Jolt.Abstractions
 {
     /// <summary>
-    /// Represents a service that can provide the most common global events.
+    /// Provides access to the most common global browser events, such as mouse or keyboard events.
     /// </summary>
     public interface IGlobalEvents
     {

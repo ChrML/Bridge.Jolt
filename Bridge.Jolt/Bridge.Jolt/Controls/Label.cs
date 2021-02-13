@@ -43,11 +43,11 @@ namespace Jolt.Controls
                     this._text = value;
                     if (String.IsNullOrEmpty(value))
                     {
-                        this.DomElement.innerHTML = "&nbsp;";
+                        this.Dom.innerHTML = "&nbsp;";
                     }
                     else
                     {
-                        this.DomElement.innerText = value;
+                        this.Dom.innerText = value;
                     }
                 }
             }

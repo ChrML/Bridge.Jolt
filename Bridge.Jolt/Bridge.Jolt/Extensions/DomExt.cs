@@ -38,6 +38,22 @@ namespace Jolt
         }
 
         /// <summary>
+        /// Appends a native HTML- element to the current element.
+        /// </summary>
+        /// <param name="element">The element to append another control to.</param>
+        /// <param name="html">The HTML- code to append.</param>
+        /// <returns>Returns the value of <paramref name="element"/>.</returns>
+        public static dom.HTMLElement Append(this dom.HTMLElement element, string html)
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+
+            dynamic template = dom.document.createElement("template");
+            template.innerHTML = html;
+            element.appendChild(template);
+            return element;
+        }
+
+        /// <summary>
         /// Appends a class that contains a HTML- element to the current element.
         /// </summary>
         /// <param name="element">The element to append another control to.</param>

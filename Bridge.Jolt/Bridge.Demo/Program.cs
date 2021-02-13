@@ -10,7 +10,10 @@ namespace Jolt.Demo
         {
             AppServices.UseStartup<Startup>();
 
-            dom.HTMLElement root = Html.GetByIdRequired<dom.HTMLElement>("Demo-Root");
+            dom.HTMLElement root = Html.GetBody();
+            root.Append<Clock>();
+
+            root.Append<ApiClientDemo>();
 
             root
                 .New<Label>(label =>

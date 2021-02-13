@@ -58,7 +58,7 @@ namespace Jolt.Demo.Controls
             };
 
 
-            this.DomElement
+            this.Dom
                 .Append(edit1)
                 .Append(edit2)
                 .Append(edit3)

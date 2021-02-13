@@ -15,7 +15,7 @@ namespace Jolt.Controls
         /// </summary>
         public ListViewItem()
         {
-            this.DomElement.onclick = this.DomClicked;
+            this.Dom.onclick = this.DomClicked;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Jolt.Controls
                 if (this._disabled != value)
                 {
                     this._disabled = value;
-                    this.DomElement.SetClass("Disabled", value);
+                    this.Dom.SetClass("Disabled", value);
                 }
             }
         }
@@ -93,7 +93,7 @@ namespace Jolt.Controls
 
             if (element != null)
             {
-                this.DomElement.Append(element);
+                this.Dom.Append(element);
             }
         }
 
@@ -125,7 +125,7 @@ namespace Jolt.Controls
             {
                 this.currentElement?.Remove();
                 this.currentElement = Html.NewDiv<ListViewItem>("TextContent");
-                this.DomElement.Append(this.currentElement);
+                this.Dom.Append(this.currentElement);
             }
 
             this.currentElement.SetNullableInnerText(text);

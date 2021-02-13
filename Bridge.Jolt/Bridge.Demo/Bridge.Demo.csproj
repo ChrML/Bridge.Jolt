@@ -52,8 +52,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ApiClientDemo.cs" />
     <Compile Include="Controls\TextBoxDemo.cs" />
     <Compile Include="Controls\ButtonDemo.cs" />
+    <Compile Include="Controls\Welcome.cs" />
     <Compile Include="CustomService\IOtherService.cs" />
     <Compile Include="CustomService\IMyCustomService.cs" />
     <Compile Include="CustomService\OtherService.cs" />

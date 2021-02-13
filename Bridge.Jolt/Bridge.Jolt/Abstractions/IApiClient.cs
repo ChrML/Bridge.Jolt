@@ -4,8 +4,12 @@ using System.Threading.Tasks;
 namespace Jolt.Abstractions
 {
     /// <summary>
-    /// Represents a client that can call an API. This abstraction has no meaning of which dataformat will be used which is up to the implementating service.
+    /// Provides functionality for calling web-API's asynchronously from the application.
     /// </summary>
+    /// <remarks>
+    /// This abstraction does not care about which dataformat is used, such as JSON.
+    /// The dataformat is up to the implementating service.
+    /// </remarks>
     public interface IApiClient
     {
         /// <summary>

@@ -36,8 +36,8 @@ namespace Jolt.Controls
                 }
             );
 
-            this.DomElement.Append(this.emptyLabel);
-            this.DomElement.Append(this.domContainer);
+            this.Dom.Append(this.emptyLabel);
+            this.Dom.Append(this.domContainer);
         }
 
         #endregion

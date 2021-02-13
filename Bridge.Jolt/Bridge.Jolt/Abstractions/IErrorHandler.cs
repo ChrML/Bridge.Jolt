@@ -3,7 +3,7 @@
 namespace Jolt.Abstractions
 {
     /// <summary>
-    /// Represents any service that may be invoked when unhandled errors occur.
+    /// Service for handling unexpected errors that occur in the application.
     /// </summary>
     public interface IErrorHandler
     {
