@@ -72,23 +72,23 @@ class Clock : HtmlControl, ILifecycle
         this.Dom
             .Append("<h1>Hello, world!</h1>")
             .Wrap("h2", this.clock);
-        }
-
-        public void Mounted()
-        {
-            this.timer = new Timer(
-                e => this.clock.Text = "It is " + DateTime.Now.ToLocaleString(), 
-                null, 0, 1000);
-        }
-
-        public void Unmounted()
-        {
-            this.timer.Dispose();
-        }
-
-        Timer timer;
-        readonly Label clock = new Label();
     }
+
+    public void Mounted()
+    {
+        this.timer = new Timer(
+            e => this.clock.Text = "It is " + DateTime.Now.ToLocaleString(), 
+            null, 0, 1000);
+    }
+
+    public void Unmounted()
+    {
+        this.timer.Dispose();
+    }
+
+    Timer timer;
+    readonly Label clock = new Label();
+}
 ```
 
 Now the clock is alive and updating every second.
