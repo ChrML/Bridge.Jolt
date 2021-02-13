@@ -15,7 +15,7 @@ We create a new control named `Clock`, which will encapsulate the functionality 
 In this example, the clock will not update, but only show the clock at the time the control was created. 
 
 ```c#
-public class Clock : HtmlControl
+class Clock : HtmlControl
 {
     public Clock()
     {
@@ -65,7 +65,7 @@ Then add the two methods required by the interface that will be called whenever 
 Now in the following example we create a timer when our `Clock` is added to the DOM. And when the `Clock` is removed from the DOM, we no longer need the timer, so we dispose it to prevent it from keep raising timer- events.
 
 ```c#
-public class Clock : HtmlControl, ILifecycle
+class Clock : HtmlControl, ILifecycle
 {
     public Clock()
     {
