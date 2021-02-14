@@ -55,11 +55,15 @@
     <Compile Include="Controls\ApiClientDemo.cs" />
     <Compile Include="Controls\TextBoxDemo.cs" />
     <Compile Include="Controls\ButtonDemo.cs" />
+    <Compile Include="Controls\UserProfileDemo.cs" />
     <Compile Include="Controls\Welcome.cs" />
     <Compile Include="CustomService\IOtherService.cs" />
     <Compile Include="CustomService\IMyCustomService.cs" />
+    <Compile Include="CustomService\IUserProfileService.cs" />
     <Compile Include="CustomService\OtherService.cs" />
     <Compile Include="CustomService\MyCustomService.cs" />
+    <Compile Include="CustomService\UserProfileData.cs" />
+    <Compile Include="CustomService\UserProfileService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

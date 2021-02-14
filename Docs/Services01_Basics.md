@@ -29,6 +29,16 @@ The following services are built into Jolt.
 * `IJoltLocale`\
    Provides the language strings used by the default controls in Jolt. It may be configured or replaced for multi-language implementations.
 
+* `INavigation`\
+   Provides functionality for integrating Jolt controls with navigation in a single page application. Any control can be a page.
+   The default implementation integrates well with the browser's history api for easy to code and seamless navigation.
+   An `INavigator` implementation must be added to the application for this service to work.
+   
+* `INavigator`\
+   An interface that must be implemented when using `INavigation` to define how navigation in your application works.
+   Use this interface to integrate Jolt navigation with your application's design framework.
+   
+
 
 ## Using services from a control
 
