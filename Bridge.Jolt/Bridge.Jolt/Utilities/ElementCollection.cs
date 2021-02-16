@@ -19,7 +19,7 @@ namespace Jolt.Utilities
         /// </summary>
         public ElementCollection()
         {
-            this.DomElement = Html.NewDiv<ElementCollection<T>>();
+            this.Dom = Html.NewDiv<ElementCollection<T>>();
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Jolt.Utilities
         /// <param name="domContainer">The container element for hosting these elements.</param>
         public ElementCollection(dom.HTMLElement domContainer)
         {
-            this.DomElement = domContainer ?? Html.NewDiv<ElementCollection<T>>();
+            this.Dom = domContainer ?? Html.NewDiv<ElementCollection<T>>();
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Jolt.Utilities
         /// <param name="itemRemoved"></param>
         public ElementCollection(dom.HTMLElement domContainer, Action<T, int> itemAdded, Action<T, int> itemRemoved)
         {
-            this.DomElement = domContainer ?? Html.NewDiv<ElementCollection<T>>();
+            this.Dom = domContainer ?? Html.NewDiv<ElementCollection<T>>();
             this.itemAdded = itemAdded;
             this.itemRemoved = itemRemoved;
         }
@@ -50,7 +50,7 @@ namespace Jolt.Utilities
         #region Properties
 
         /// <inheritdoc/>
-        public dom.HTMLElement DomElement { get; } = Html.NewDiv<ElementCollection<T>>();
+        public dom.HTMLElement Dom { get; }
 
         #endregion
 
@@ -109,7 +109,7 @@ namespace Jolt.Utilities
 
             // Clear the DOM / list.
             base.ClearItems();
-            this.DomElement.RemoveChildren();
+            this.Dom.RemoveChildren();
 
             // After removal.
             for (int i = 0; i < length; i++)
@@ -128,7 +128,7 @@ namespace Jolt.Utilities
             this.BeforeItemGoesIn(item, index);
             base.InsertItem(index, item);
 
-            this.DomElement.Insert(index, item.DomElement);
+            this.Dom.Insert(index, item.Dom);
             this.AfterItemGoesIn(item, index);
         }
 
@@ -142,7 +142,7 @@ namespace Jolt.Utilities
             this.BeforeItemGoesOut(oldItem, index);
             base.RemoveItem(index);
 
-            oldItem.DomElement.Remove();
+            oldItem.Dom.Remove();
             this.AfterItemGoesOut(oldItem, index);
         }
 
@@ -166,7 +166,7 @@ namespace Jolt.Utilities
 
             // Actual replacement.
             base.SetItem(index, item);
-            this.DomElement.ReplaceChild(old.DomElement, item.DomElement);
+            this.Dom.ReplaceChild(old.Dom, item.Dom);
 
             // After insert/remove.
             this.AfterItemGoesOut(old, index);

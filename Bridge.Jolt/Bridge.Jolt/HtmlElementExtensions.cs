@@ -17,7 +17,7 @@ namespace Jolt
         {
             if (element == null) throw new ArgumentNullException(nameof(element));
 
-            dom.HTMLElement dom = element.DomElement;
+            dom.HTMLElement dom = element.Dom;
             if (dom != null)
             {
                 dom.style.height = "100%";
@@ -39,7 +39,7 @@ namespace Jolt
         {
             // Check sanity.
             if (element == null) throw new ArgumentNullException(nameof(element));
-            dom.Node inner = element.DomElement;
+            dom.Node inner = element.Dom;
             if (inner == null) throw new InvalidOperationException("The HTML- element does not have a root.");
 
             // Rooted if we find the document node.
@@ -64,7 +64,7 @@ namespace Jolt
         public static void Remove(this IHtmlElement element)
         {
             if (element == null) throw new ArgumentNullException(nameof(element));
-            dom.HTMLElement dom = element.DomElement ?? throw new InvalidOperationException("The HTML- element does not have a root.");
+            dom.HTMLElement dom = element.Dom ?? throw new InvalidOperationException("The HTML- element does not have a root.");
             dom.Remove();
         }
     }

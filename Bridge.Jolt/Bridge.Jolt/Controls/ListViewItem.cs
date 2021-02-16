@@ -89,7 +89,7 @@ namespace Jolt.Controls
                 this.currentElement = null;
             }
 
-            this.currentElement = element?.DomElement;
+            this.currentElement = element?.Dom;
 
             if (element != null)
             {

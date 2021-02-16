@@ -10,6 +10,6 @@ namespace Jolt
         /// <summary>
         /// Gets the root DOM- element.
         /// </summary>
-        dom.HTMLElement DomElement { get; }
+        dom.HTMLElement Dom { get; }
     }
 }

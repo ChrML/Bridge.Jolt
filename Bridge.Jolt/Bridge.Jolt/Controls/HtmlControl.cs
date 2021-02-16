@@ -113,7 +113,7 @@ namespace Jolt.Controls
         #region IHtmlElement- implementation
 
         /// <inheritdoc/>
-        dom.HTMLElement IHtmlElement.DomElement => this.Dom;
+        dom.HTMLElement IHtmlElement.Dom => this.Dom;
 
         #endregion
 

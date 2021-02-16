@@ -63,7 +63,7 @@ namespace Jolt
         {
             if (element == null) throw new ArgumentNullException(nameof(element));
             if (append == null) throw new ArgumentNullException(nameof(append));
-            dom.HTMLElement item = append.DomElement ?? throw new InvalidOperationException("The HTML- element from the appended item was null.");
+            dom.HTMLElement item = append.Dom ?? throw new InvalidOperationException("The HTML- element from the appended item was null.");
             element.appendChild(item);
             return element;
         }
@@ -79,7 +79,7 @@ namespace Jolt
             if (element == null) throw new ArgumentNullException(nameof(element));
 
             T child = ActivatorUtilities.CreateInstance<T>(AppServices.Default);
-            dom.HTMLElement item = child.DomElement ?? throw new InvalidOperationException("The HTML- element in the created item was null.");
+            dom.HTMLElement item = child.Dom ?? throw new InvalidOperationException("The HTML- element in the created item was null.");
 
             element.appendChild(item);
             return element;
@@ -153,7 +153,7 @@ namespace Jolt
             if (element == null) throw new ArgumentNullException(nameof(element));
             if (child == null) throw new ArgumentNullException(nameof(child));
 
-            element.Insert(index, child.DomElement);
+            element.Insert(index, child.Dom);
         }
 
         /// <summary>
