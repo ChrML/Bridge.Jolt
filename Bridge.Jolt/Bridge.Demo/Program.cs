@@ -14,6 +14,9 @@ namespace Jolt.Demo
             root.Append<Clock>();
             root.Append<MultipleClocks>();
 
+            Spinner spinner = new Spinner(root);
+            spinner.SetStatus(TaskStatus.InProgress);
+
             root.Append<ApiClientDemo>();
 
             root

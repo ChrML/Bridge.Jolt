@@ -114,6 +114,14 @@
 }
 
 
+/** Controls -> Spinner
+*/
+.Jolt-Controls-Spinner-Indicator {
+    width: 2em;
+    height: 2em;
+}
+
+
 /** Controls -> TextBox
 */
 .Jolt-Controls-TextBox {
