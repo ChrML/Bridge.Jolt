@@ -1,5 +1,6 @@
 ﻿using Retyped;
 using System;
+using System.Collections.Generic;
 
 namespace Jolt
 {
@@ -82,6 +83,49 @@ namespace Jolt
             dom.HTMLElement item = child.Dom ?? throw new InvalidOperationException("The HTML- element in the created item was null.");
 
             element.appendChild(item);
+            return element;
+        }
+
+        /// <summary>
+        /// Appends an array of HTML- elements to the current element.
+        /// </summary>
+        /// <param name="element">The element to append another control to.</param>
+        /// <param name="append">The element to append.</param>
+        /// <returns>Returns the value of <paramref name="element"/>.</returns>
+        public static dom.HTMLElement AppendRange(this dom.HTMLElement element, params IHtmlElement[] append)
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+
+            if (append != null)
+            {
+                int length = append.Length;
+                for (int i = 0; i < length; i++)
+                {
+                    element.Append(append[i]);
+                }
+            }
+
+            return element;
+        }
+
+        /// <summary>
+        /// Appends an array of HTML- elements to the current element.
+        /// </summary>
+        /// <param name="element">The element to append another control to.</param>
+        /// <param name="append">The element to append.</param>
+        /// <returns>Returns the value of <paramref name="element"/>.</returns>
+        public static dom.HTMLElement AppendRange(this dom.HTMLElement element, IEnumerable<IHtmlElement> append)
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+
+            if (append != null)
+            {
+                foreach (IHtmlElement item in append)
+                {
+                    element.Append(item);
+                }
+            }
+
             return element;
         }
 
