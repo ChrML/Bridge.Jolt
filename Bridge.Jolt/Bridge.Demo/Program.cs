@@ -12,6 +12,7 @@ namespace Jolt.Demo
 
             dom.HTMLElement root = Html.GetBody();
             root.Append<Clock>();
+            root.Append<MultipleClocks>();
 
             root.Append<ApiClientDemo>();
 

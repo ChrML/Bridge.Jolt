@@ -76,10 +76,39 @@ namespace Jolt.Utilities
             for (uint i = 0; i < count; i++)
             {
                 dom.Node node = added[i];
+                if (node.hasChildNodes())
+                {
+                    this.AddedNodesChildren(node.childNodes);
+                }
+
                 object temp = node["$Jolt$Lifecycle"];
                 if (temp != null)
                 {
-                    // Avoid a very expensive cast for something we know is an ILifecycle.
+                    // Avoid an expensive cast validation for something we already know is an ILifecycle.
+                    this.NotifyMount(Script.Write<ILifecycle>(nameof(temp)));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method for recursively checking all our children for the lifecycle interface.
+        /// </summary>
+        /// <param name="nodes"></param>
+        void AddedNodesChildren(dom.NodeListOf<Intersection<dom.Node, dom.ChildNode>> nodes)
+        {
+            int count = Script.Write<int>("nodes.length");      // Avoid a trunc operation since "length" is a double. Just treat it as an int.
+            for (int i = 0; i < count; i++)
+            {
+                dom.Node node = nodes[i];
+                if (node.hasChildNodes())
+                {
+                    this.AddedNodesChildren(node.childNodes);
+                }
+
+                object temp = node["$Jolt$Lifecycle"];
+                if (temp != null)
+                {
+                    // Avoid an expensive cast validation for something we already know is an ILifecycle.
                     this.NotifyMount(Script.Write<ILifecycle>(nameof(temp)));
                 }
             }
