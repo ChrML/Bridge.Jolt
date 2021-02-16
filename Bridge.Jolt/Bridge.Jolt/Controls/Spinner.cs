@@ -52,12 +52,17 @@ namespace Jolt.Controls
 
             if (status == TaskStatus.None)
             {
-                this.indicator.Remove();
+                this.indicator?.Remove();
                 this.indicator = null;
             }
             else
             {
-                this.indicator = Html.NewImg<Spinner>("Indicator");
+                bool created =false;
+                if (this.indicator == null)
+                {
+                    this.indicator = Html.NewImg<Spinner>("Indicator");
+                    created = true;
+                }
 
                 switch (status)
                 {
@@ -79,7 +84,11 @@ namespace Jolt.Controls
                 }
 
                 this.indicator.title = details;
-                this.parent.Append(this.indicator);
+
+                if (created)
+                {
+                    this.parent.Append(this.indicator);
+                }
             }
         }
 
