@@ -4,9 +4,9 @@ using System;
 namespace Jolt.Http
 {
     /// <summary>
-    /// Provides internal HTTP helpers.
+    /// Provides HTTP helper methods.
     /// </summary>
-    static class HttpHelpers
+    public static class HttpHelpers
     {
         /// <summary>
         /// Gets a HTTP status code description in the current locale.
@@ -36,21 +36,11 @@ namespace Jolt.Http
         }
 
         /// <summary>
-        /// Gets if the given HTTP response code means that the request succeeded.
-        /// </summary>
-        /// <param name="code"></param>
-        /// <returns></returns>
-        public static bool IsSuccessCode(int code)
-        {
-            return code >= 200 && code <= 300;
-        }
-
-        /// <summary>
-        /// Gets the input URL with a timestamp appended for no caching.
+        /// Gets the input URL with a timestamp appended to ensure no cache.
         /// </summary>
         /// <param name="url">Input URL.</param>
         /// <returns>Modified output URL.</returns>
-        public static string UrlWithNoCache(string url)
+        public static string GetUrlWithNoCache(string url)
         {
             if (String.IsNullOrEmpty(url))
             {
@@ -66,6 +56,16 @@ namespace Jolt.Http
             {
                 return url + "?_=" + ticks;
             }
+        }
+
+        /// <summary>
+        /// Gets if the given HTTP response code means that the request succeeded.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public static bool IsSuccessCode(int code)
+        {
+            return code >= 200 && code <= 300;
         }
     }
 }

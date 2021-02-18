@@ -54,7 +54,7 @@ namespace Jolt.StandardServices.Default
             // Disable caching for GET- requests.
             if (method == HttpMethod.Get)
             {
-                uri = HttpHelpers.UrlWithNoCache(uri);
+                uri = HttpHelpers.GetUrlWithNoCache(uri);
             }
 
             // Configure request.

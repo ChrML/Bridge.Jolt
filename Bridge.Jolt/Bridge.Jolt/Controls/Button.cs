@@ -99,7 +99,7 @@ namespace Jolt.Controls
         /// <summary>
         /// Raises the <see cref="Click"/> event.
         /// </summary>
-        protected virtual void OnClick(MouseEventArgs e) => Click?.Invoke(this, e);
+        protected virtual void OnClick(MouseEventArgs e) => this.Click?.Invoke(this, e);
 
         /// <summary>
         /// Occurs when user has clicked the button. The handler of this event should return a task that will be awaited by this control.
