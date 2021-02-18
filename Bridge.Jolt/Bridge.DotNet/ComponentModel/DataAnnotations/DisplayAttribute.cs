@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 
 namespace Jolt.Poly.DataAnnotations
 {
@@ -26,51 +25,16 @@ namespace Jolt.Poly.DataAnnotations
 
         /// <summary>
         /// Gets or sets a value that indicates whether UI should be generated automatically in order to display this field.
-        /// <para>
-        /// Consumers must use the <see cref="GetAutoGenerateField"/> method to retrieve the value,
-        /// as this property getter will throw an exception if the value has not been set.
-        /// </para>
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">If the getter of this property is invoked when the value has not been explicitly set using the setter.</exception>
-        public bool AutoGenerateField
-        {
-            get
-            {
-                if (!this._autoGenerateField.HasValue)
-                {
-                    throw new InvalidOperationException(String.Format(CultureInfo.CurrentCulture, "Property not set", nameof(this.AutoGenerateField), "GetAutoGenerateField"));
-                }
-                return this._autoGenerateField.Value;
-            }
-            set => this._autoGenerateField = value;
-        }
+        public bool AutoGenerateField { get; set; }
 
         /// <summary>
         /// Gets or sets a value that indicates whether filtering UI is automatically displayed for this field.
-        /// <para>
-        /// Consumers must use the <see cref="GetAutoGenerateFilter"/> method to retrieve the value, as this property getter will throw
-        /// an exception if the value has not been set.
-        /// </para>
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">If the getter of this property is invoked when the value has not been explicitly set using the setter.</exception>
-        public bool AutoGenerateFilter
-        {
-            get
-            {
-                if (!this._autoGenerateFilter.HasValue)
-                {
-                    throw new InvalidOperationException(String.Format(CultureInfo.CurrentCulture, "Property not set", nameof(this.AutoGenerateFilter), "GetAutoGenerateFilter"));
-                }
-                return this._autoGenerateFilter.Value;
-            }
-            set => this._autoGenerateFilter = value;
-        }
+        public bool AutoGenerateFilter { get; set; }
 
         /// <summary>
         /// Gets or sets a value that is used to display a description in the UI.
-        /// <para>
-        /// Consumers must use the <see cref="GetDescription"/> method to retrieve the UI display string.
-        /// </para>
         /// </summary>
         /// <remarks>
         /// The property contains either the literal, non-localized string or the resource key to be used in conjunction
@@ -88,9 +52,6 @@ namespace Jolt.Poly.DataAnnotations
 
         /// <summary>
         /// Gets or sets a value that is used to group fields in the UI.
-        /// <para>
-        /// Consumers must use the <see cref="GetGroupName"/> method to retrieve the UI display string.
-        /// </para>
         /// </summary>
         /// <remarks>
         /// The property contains either the literal, non-localized string or the resource key to be used in conjunction with
@@ -108,9 +69,6 @@ namespace Jolt.Poly.DataAnnotations
 
         /// <summary>
         /// Gets or sets a value that is used for display in the UI.
-        /// <para>
-        /// Consumers must use the <see cref="GetName"/> method to retrieve the UI display string.
-        /// </para>
         /// </summary>
         /// <remarks>
         /// The property contains either the literal, non-localized string or the resource key to be used in conjunction with
@@ -129,29 +87,11 @@ namespace Jolt.Poly.DataAnnotations
         /// <summary>
         /// Gets or sets the order in which this field should be displayed.  If this property is not set then the presentation layer will automatically
         /// determine the order. Setting this property explicitly allows an override of the default behavior of the presentation layer.
-        /// <para>
-        /// Consumers must use the <see cref="GetOrder"/> method to retrieve the value, as this property getter will throw an exception if the value has not been set.
-        /// </para>
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">If the getter of this property is invoked when the value has not been explicitly set using the setter.</exception>
-        public int Order
-        {
-            get
-            {
-                if (!this._order.HasValue)
-                {
-                    throw new InvalidOperationException(String.Format(CultureInfo.CurrentCulture, "Property not set", nameof(this.Order), "GetOrder"));
-                }
-                return this._order.Value;
-            }
-            set => this._order = value;
-        }
+        public int Order { get; set; }
 
         /// <summary>
         /// Gets or sets the Prompt attribute property, which may be a resource key string.
-        /// <para>
-        /// Consumers must use the <see cref="GetPrompt"/> method to retrieve the UI display string.
-        /// </para>
         /// </summary>
         /// <remarks>
         /// The property contains either the literal, non-localized string or the resource key to be used in conjunction with
@@ -178,9 +118,6 @@ namespace Jolt.Poly.DataAnnotations
 
         /// <summary>
         /// Gets or sets the ShortName attribute property, which may be a resource key string.
-        /// <para>
-        /// Consumers must use the <see cref="GetShortName"/> method to retrieve the UI display string.
-        /// </para>
         /// </summary>
         /// <remarks>
         /// The property contains either the literal, non-localized string or the resource key to be used in conjunction with
@@ -220,7 +157,7 @@ namespace Jolt.Poly.DataAnnotations
         /// When <see cref="AutoGenerateFilter"/> has not been set returns <c>null</c>.
         /// </para>
         /// </returns>
-        public bool? GetAutoGenerateFilter() => this._autoGenerateFilter;
+        public bool? GetAutoGenerateFilter() => this.AutoGenerateFilter;
 
         /// <summary>
         /// Gets the UI display string for Description.
@@ -309,7 +246,7 @@ namespace Jolt.Poly.DataAnnotations
         /// of 10000.  This value allows for explicitly-ordered fields to be displayed before
         /// and after the fields that don't specify an order.
         /// </remarks>
-        public int? GetOrder() => this._order;
+        public int? GetOrder() => this.Order;
 
         /// <summary>
         /// Gets the UI display string for Prompt.
@@ -359,14 +296,6 @@ namespace Jolt.Poly.DataAnnotations
         /// on the <see cref="ResourceType"/>.
         /// </exception>
         public string GetShortName() => this.ShortName;
-
-        #endregion
-
-        #region Private
-
-        bool? _autoGenerateField;
-        bool? _autoGenerateFilter;
-        int? _order;
 
         #endregion
     }
