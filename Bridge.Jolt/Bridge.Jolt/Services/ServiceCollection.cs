@@ -52,6 +52,28 @@ namespace Jolt
         }
 
         /// <inheritdoc/>
+        public IServiceCollection AddSingleton<TService, TImplementation>(TImplementation instance)
+            where TImplementation : class, TService
+        {
+            ServiceDescriptor descriptor = new ServiceDescriptor
+            (
+                implementingType: typeof(TImplementation),
+                serviceType: typeof(TService),
+                singleton: true,
+                singletonInstance: instance
+            );
+
+            if (this.services.TryAdd(typeof(TService), descriptor))
+            {
+                return this;
+            }
+            else
+            {
+                throw new InvalidOperationException($"Already a service registered with type {typeof(TService).FullName}.");
+            }
+        }
+
+        /// <inheritdoc/>
         public IServiceCollection AddTransient<TService, TImplementation>() 
             where TImplementation : class, TService
         {

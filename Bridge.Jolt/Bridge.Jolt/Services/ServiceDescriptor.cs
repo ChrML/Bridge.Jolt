@@ -20,6 +20,7 @@ namespace Jolt
             this.ServiceType = serviceType ?? throw new ArgumentNullException(nameof(serviceType));
             this.Singleton = singleton;
             this.singletonInstance = singletonInstance;
+            this.singletonFromConstructor = singletonInstance != null;
         }
 
         /// <summary>
@@ -28,13 +29,12 @@ namespace Jolt
         /// <returns></returns>
         public ServiceDescriptor CopyWithoutInstance()
         {
-            // TODO: We should probably pass the one from the constructor, but not those created later.
-
             return new ServiceDescriptor
             (
                 implementingType: this.ImplementingType,
                 serviceType: this.ServiceType,
-                singleton: this.Singleton
+                singleton: this.Singleton,
+                singletonInstance: this.singletonFromConstructor ? this.singletonInstance : null
             );
         }
 
@@ -76,5 +76,6 @@ namespace Jolt
         }
 
         object singletonInstance;
+        readonly bool singletonFromConstructor;
     }
 }

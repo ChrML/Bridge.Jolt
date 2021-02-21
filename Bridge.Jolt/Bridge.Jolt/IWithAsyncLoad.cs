@@ -6,7 +6,7 @@ namespace Jolt
     /// <summary>
     /// Represents any element or control that requires asynchronous load before display. Such as a control loading something from the server.
     /// </summary>
-    public interface IRequiresAsyncLoad
+    public interface IWithAsyncLoad
     {
         /// <summary>
         /// Called when the contents of this element or control should be loaded.

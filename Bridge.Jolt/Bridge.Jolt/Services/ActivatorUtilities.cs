@@ -15,11 +15,12 @@ namespace Jolt
         /// </summary>
         /// <typeparam name="T">The type to create.</typeparam>
         /// <param name="provider">The service provider for resolving services.</param>
+        /// <param name="values">Additional values that could be provided to the constructor.</param>
         /// <returns>Returns the new instance created.</returns>
-        public static T CreateInstance<T>(IServices provider) where T : class
+        public static T CreateInstance<T>(IServices provider, object values = null) where T : class
         {
             if (provider == null) throw new ArgumentNullException(nameof(provider));
-            return (T)CreateInstance(provider, typeof(T));
+            return (T)CreateInstance(provider, typeof(T), values);
         }
 
         /// <summary>
@@ -27,8 +28,9 @@ namespace Jolt
         /// </summary>
         /// <param name="provider">The service provider for resolving services.</param>
         /// <param name="type">The type to create.</param>
+        /// <param name="values">Additional values that could be used for the constructor.</param>
         /// <returns>Returns the new instance created.</returns>
-        public static object CreateInstance(IServices provider, Type type)
+        public static object CreateInstance(IServices provider, Type type, object values = null)
         {
             // Check sanity.
             if (provider == null) throw new ArgumentNullException(nameof(provider));
@@ -62,37 +64,8 @@ namespace Jolt
             }
 
             // Create the instance.
-            object[] parameters = ResolveConstructorDependencies(type, defaultCtor, provider);
+            object[] parameters = ConstructorArgumentResolver.Resolve(type, defaultCtor, provider, values);
             return defaultCtor.Invoke(parameters);
-        }
-
-        #endregion
-
-        #region Privates
-
-        /// <summary>
-        /// Recursively resolves the dependencies of the constructor.
-        /// </summary>
-        static object[] ResolveConstructorDependencies(Type type, ConstructorInfo constructor, IServices provider)
-        {
-            ParameterInfo[] parameters = constructor.GetParameters();
-
-            object[] parameterValues = new object[parameters.Length];
-            for (int i = 0; i < parameterValues.Length; i++)
-            {
-                Type paramType = parameters[i].ParameterType;
-                object service = provider.GetService(paramType);
-                if (service != null)
-                {
-                    parameterValues[i] = service;
-                }
-                else
-                {
-                    throw new InvalidOperationException($"Unable to create {type.FullName}. The dependency {paramType.FullName} has not been added to the service collection.");
-                }
-            }
-
-            return parameterValues;
         }
 
         #endregion

@@ -1,11 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Jolt.Navigation
 {
     /// <summary>
     /// Provides data after a navigation occured.
     /// </summary>
-    public sealed class BeforeNavigateEventArgs
+    public sealed class BeforeNavigateEventArgs: CancelEventArgs
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BeforeNavigateEventArgs"/> class.

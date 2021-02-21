@@ -37,6 +37,7 @@ Eventually we could use a different C# to Javascript transpiler than Bridge.NET.
  * [Controls 2: Lifecycles](https://github.com/ChrML/Bridge.Jolt/blob/main/Docs/Controls02_Lifecycle.md)
  * [Services 1: Basic usage](https://github.com/ChrML/Bridge.Jolt/blob/main/Docs/Services01_Basics.md)
  * [Services 2: Creating custom services](https://github.com/ChrML/Bridge.Jolt/blob/main/Docs/Services02_Custom.md)
+ * [Navigation 1: Basic usage](https://github.com/ChrML/Bridge.Jolt/blob/main/Docs/Navigation01_Basics.md)
 
 
 # Tasks left to accomplish

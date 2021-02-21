@@ -1,5 +1,7 @@
 ﻿using Jolt.Demo.CustomService;
+using Jolt.Navigation;
 using Bridge;
+using Retyped;
 
 namespace Jolt.Demo
 {
@@ -16,7 +18,8 @@ namespace Jolt.Demo
 
             services
                 .AddSingleton<IMyCustomService, MyCustomService>()
-                .AddSingleton<IOtherService, OtherService>();
+                .AddSingleton<IOtherService, OtherService>()
+                .SetSimpleNavigatorIn(Html.GetById<dom.HTMLDivElement>("Demo-Root"));
         }
 
         public void Configure(Jolt.IServices provider)

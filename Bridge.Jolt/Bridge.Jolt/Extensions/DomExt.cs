@@ -157,7 +157,7 @@ namespace Jolt
         /// <param name="element">The item to insert a new child for.</param>
         /// <param name="index">Index to insert item to.</param>
         /// <param name="child">The child element to insert.</param>
-        public static void Insert(this dom.Element element, int index, dom.Element child)
+        public static dom.Element Insert(this dom.Element element, int index, dom.Element child)
         {
             // Check sanity.
             if (element == null) throw new ArgumentNullException(nameof(element));
@@ -184,6 +184,8 @@ namespace Jolt
                 uint i = Convert.ToUInt32(index);
                 element.insertBefore(child, element.children[i]);
             }
+
+            return element;
         }
 
         /// <summary>
@@ -192,12 +194,13 @@ namespace Jolt
         /// <param name="element">The item to insert a new child for.</param>
         /// <param name="index">Index to insert item to.</param>
         /// <param name="child">The child element to insert.</param>
-        public static void Insert(this dom.HTMLElement element, int index, IHtmlElement child)
+        public static dom.HTMLElement Insert(this dom.HTMLElement element, int index, IHtmlElement child)
         {
             if (element == null) throw new ArgumentNullException(nameof(element));
             if (child == null) throw new ArgumentNullException(nameof(child));
 
             element.Insert(index, child.Dom);
+            return element;
         }
 
         /// <summary>

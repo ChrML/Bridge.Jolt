@@ -5,7 +5,7 @@ namespace Jolt.Navigation
     /// <summary>
     /// Provides data after a navigation occured.
     /// </summary>
-    public sealed class AfterNavigateEventArgs
+    public sealed class AfterNavigateEventArgs: EventArgs
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AfterNavigateEventArgs"/> class.

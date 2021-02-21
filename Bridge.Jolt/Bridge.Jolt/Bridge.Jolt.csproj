@@ -85,9 +85,11 @@
     <Compile Include="Http\HttpHelper.cs" />
     <Compile Include="Http\HttpMethod.cs" />
     <Compile Include="Http\HttpRequestException.cs" />
+    <Compile Include="IControlState.cs" />
     <Compile Include="ILifecycle.cs" />
-    <Compile Include="IRequiresAsyncLoad.cs" />
+    <Compile Include="IWithAsyncLoad.cs" />
     <Compile Include="ITrackUse.cs" />
+    <Compile Include="MouseArgDelegate.cs" />
     <Compile Include="MouseButton.cs" />
     <Compile Include="MouseEventArgs.cs" />
     <Compile Include="Navigation\AfterNavigateEventArgs.cs" />
@@ -99,10 +101,14 @@
     <Compile Include="Navigation\NativeBrowserHistory.cs" />
     <Compile Include="Navigation\NavigateData.cs" />
     <Compile Include="Navigation\NavigateOptions.cs" />
+    <Compile Include="Navigation\Navigation.cs" />
+    <Compile Include="Navigation\NavigationContext.cs" />
     <Compile Include="Navigation\NavigationExtensions.cs" />
+    <Compile Include="Navigation\SimpleNavigator.cs" />
     <Compile Include="Services.cs" />
     <Compile Include="Services\ActivatorUtilities.cs" />
     <Compile Include="Services\AppServices.cs" />
+    <Compile Include="Services\ConstructorArgumentResolver.cs" />
     <Compile Include="StandardServices\DefaultErrorHandler.cs" />
     <Compile Include="StandardServices\DefaultGlobalEvents.cs" />
     <Compile Include="StandardServices\DefaultJoltImageProvider.cs" />

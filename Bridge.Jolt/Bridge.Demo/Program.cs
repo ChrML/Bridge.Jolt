@@ -1,5 +1,6 @@
 ﻿using Jolt.Controls;
 using Jolt.Demo.Controls;
+using Jolt.Navigation;
 using Retyped;
 
 namespace Jolt.Demo
@@ -8,32 +9,48 @@ namespace Jolt.Demo
     {
         public static void Main()
         {
-            AppServices.UseStartup<Startup>();
 
-            dom.HTMLElement root = Html.GetBody();
-            root.Append<Clock>();
-            root.Append<MultipleClocks>();
+            var root = Html.GetById<dom.HTMLDivElement>("NavigationArea");
+            AppServices.ConfigureServices(services =>
+            {
+                services.SetSimpleNavigatorIn(root);
+            });
 
-            Spinner spinner = new Spinner(root);
-            spinner.SetStatus(TaskStatus.InProgress);
 
-            root.Append<ApiClientDemo>();
-
-            root
-                .New<Label>(label =>
+            Html.GetBody()
+                .Insert(0, new Button
                 {
-                    label.Text = "Here is a few buttons: ";
+                    ClickAction = e => Services.Default.NavigateTo<Page1>("Page 1"),
+                    Text = "Go to Page 1"
                 })
-                .New<ButtonDemo>()
-                .New<TextBoxDemo>()
-                .New<ListView>(list =>
-                {
-                    list.Items
-                        .Add("Item 1")
-                        .Add("Item 2")
-                        .Add("Item 3");
 
+                .Insert(1, new Button
+                {
+                    ClickAction = e => Services.Default.NavigateTo<Page2>("Page 2"),
+                    Text = "Go to Page 2"
                 });
+
+
+
+            //AppServices.UseStartup<Startup>();
+
+
+            ////dom.HTMLElement root = Html.GetBody();
+
+            //Button btnPage1 = new Button
+            //{
+            //    Text = "Go to page 1"
+            //};
+            //btnPage1.Click += (o, e) => Services.Default.NavigateTo<Page1>("Page 1", new
+            //{
+
+            //});
+
+            //root.Append(btnPage1);
+
+
+
+
         }
     }
 }

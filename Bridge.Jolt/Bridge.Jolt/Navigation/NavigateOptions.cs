@@ -11,5 +11,10 @@
         public NavigateOptions()
         {
         }
+
+        /// <summary>
+        /// Gets the default navigate options.
+        /// </summary>
+        public static NavigateOptions Default { get; } = new NavigateOptions();
     }
 }

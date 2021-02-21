@@ -39,6 +39,33 @@ namespace Jolt.Controls
         #region Properties
 
         /// <summary>
+        /// Gets or sets the click action.
+        /// </summary>
+        /// <remarks>
+        /// This is just a simplication of the <see cref="Click"/> event.
+        /// </remarks>
+        public MouseArgDelegate ClickAction
+        {
+            get => this._clickAction;
+            set
+            {
+                if (this._clickAction != null)
+                {
+                    this.Click -= this._clickActionHandler;
+                }
+
+                this._clickAction = value;
+                if (value != null)
+                {
+                    this._clickActionHandler = (o, e) => value(e);
+                    this.Click += this._clickActionHandler;
+                }
+            }
+        }
+        MouseArgDelegate _clickAction;
+        EventHandler<MouseEventArgs> _clickActionHandler;
+
+        /// <summary>
         /// Gets or sets the button is disabled. Disabled buttons cannot be clicked and are rendered differently.
         /// </summary>
         public bool Disabled

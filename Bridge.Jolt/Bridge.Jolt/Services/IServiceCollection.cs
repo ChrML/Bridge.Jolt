@@ -16,6 +16,17 @@
             where TImplementation : class, TService;
 
         /// <summary>
+        /// Adds a new singleton service that may be resolved as <typeparamref name="TService"/>. <br/>
+        /// Singletons have just one instance across the service container.
+        /// </summary>
+        /// <param name="instance">Instance of the service to use.</param>
+        /// <typeparam name="TService">The type that the service should be resolved as.</typeparam>
+        /// <typeparam name="TImplementation">The type that implements the service.</typeparam>
+        /// <returns>Returns this service collection.</returns>
+        IServiceCollection AddSingleton<TService, TImplementation>(TImplementation instance)
+            where TImplementation : class, TService;
+
+        /// <summary>
         /// Adds a new transient service that may be resolved as <typeparamref name="TService"/>. <br/>
         /// Transient services are re-created every time they are used so each depending class will get a new instance.
         /// </summary>
