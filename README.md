@@ -38,6 +38,10 @@ Eventually we could use a different C# to Javascript transpiler than Bridge.NET.
  * [Services 1: Basic usage](https://github.com/ChrML/Bridge.Jolt/blob/main/Docs/Services01_Basics.md)
  * [Services 2: Creating custom services](https://github.com/ChrML/Bridge.Jolt/blob/main/Docs/Services02_Custom.md)
  * [Navigation 1: Basic usage](https://github.com/ChrML/Bridge.Jolt/blob/main/Docs/Navigation01_Basics.md)
+ 
+
+# Development
+ * [Starting the demo application](https://github.com/ChrML/Bridge.Jolt/blob/main/Docs/Start01.md)
 
 
 # Tasks left to accomplish
